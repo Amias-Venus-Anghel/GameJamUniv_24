@@ -169,8 +169,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7107c0c4f9eabce41a50d659773be1eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roadCardsNumber: 10
-  cardsNumber: 0
+  roadCardsNumber: 4
+  cardsNumber: 3
   prefabCard: {fileID: 8839210787546007571, guid: ef352d4b72b4b874c8b9952f9747814a,
     type: 3}
   roadPrefabCards:
@@ -552,12 +552,12 @@ PrefabInstance:
     - target: {fileID: 8839210787546007570, guid: ef352d4b72b4b874c8b9952f9747814a,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -54
+      value: -360
       objectReference: {fileID: 0}
     - target: {fileID: 8839210787546007570, guid: ef352d4b72b4b874c8b9952f9747814a,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 29
+      value: 186
       objectReference: {fileID: 0}
     - target: {fileID: 8839210787546007570, guid: ef352d4b72b4b874c8b9952f9747814a,
         type: 3}

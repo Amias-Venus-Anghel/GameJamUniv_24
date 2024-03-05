@@ -6,9 +6,9 @@ public class GenerateDeck : MonoBehaviour
 {
     [SerializeField] int roadCardsNumber = 3;
     [SerializeField] int cardsNumber = 10;
-    [SerializeField] GameObject prefabCard;
-    [SerializeField] GameObject[] roadPrefabCards;
-    [SerializeField] GameObject endPrefabCard;
+    [SerializeField] GameObject prefabCard = null;
+    [SerializeField] GameObject[] roadPrefabCards = null;
+    [SerializeField] GameObject endPrefabCard = null;
     
     void Start()
     {
@@ -24,7 +24,8 @@ public class GenerateDeck : MonoBehaviour
         card.transform.SetParent(transform.parent);
 
         for (int i = 0; i < roadCardsNumber; i++) {
-            int index = Random.RandomRange(0, roadPrefabCards.Length);
+            // int index = Random.RandomRange(0, roadPrefabCards.Length);
+            int index = i % 2;
             card = Instantiate(roadPrefabCards[index], transform.position, Quaternion.identity);
             card.transform.SetParent(transform.parent);
         }

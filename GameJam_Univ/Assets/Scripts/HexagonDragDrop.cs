@@ -9,7 +9,7 @@ using System;
 public class HexagonDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     // referances
-    [SerializeField] private bool starterPoint;
+    [SerializeField] private bool starterPoint = false;
     [SerializeField] private GameObject[] holders = null;
     private CardDeck cardDeck;
     private Image image;
@@ -17,6 +17,10 @@ public class HexagonDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     private bool canRotate = false;
     private bool placed = false;
     private int nrRotiri = 0;
+
+    // road checks
+    [SerializeField] private bool isRoad = false;
+    [SerializeField] private int[] roadEndPoints = null; // index of road end points
     
     void Start() {
         image = GetComponent<Image>();
@@ -30,32 +34,35 @@ public class HexagonDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, I
                 holders[i].GetComponent<Image>().enabled = false;
             }
         }
+
+        // set road tiles
+        if (isRoad) {
+            for (int i = 0; i < roadEndPoints.Length; i++) {
+                holders[roadEndPoints[i]].GetComponent<PlaceHolders>().SetAsRoad();
+            }
+        }
+
         // if point is start, can't be moved
         if (starterPoint) {
             placed = true;
+            image.raycastTarget = false;
         }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        // check if card has been placed before movement
-        if (!placed) {
-            Debug.Log("Begin drag");
-            image.raycastTarget = false;
-            transform.SetParent(transform.root);
-            transform.SetAsLastSibling();
-            canRotate = true;
-            cardDeck.SetCanRotate(true);
-        }
+        Debug.Log("Begin drag");
+        image.raycastTarget = false;
+        canRotate = true;
+        transform.SetParent(transform.root);
+        transform.SetAsLastSibling();
+        cardDeck.SetCanRotate(true);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        // check if card has been placed before movement
-        if (!placed) {
-            Debug.Log("draggin");
-            transform.position = Input.mousePosition;
-        }
+        Debug.Log("draggin");
+        transform.position = Input.mousePosition;
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -63,17 +70,21 @@ public class HexagonDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         Debug.Log("End drag");
         canRotate = false;
         cardDeck.SetCanRotate(false);
+
         // reactivate raycastTarget to stop overplacing cards
-        image.raycastTarget = true;
+        if (!placed) {
+            image.raycastTarget = true;
+        }
 
         int[] newIndex = new int[6];
         for (int i = 0; i < 6; i++) {
             newIndex[i] = (i + nrRotiri)%6;
         }
-        // show placeholders if card is placed
         for (int i = 0; i < 6; i++) {
             if (holders[i] != null) {
+                // remake index order
                 holders[i].GetComponent<PlaceHolders>().SetIndex(newIndex[i]);
+                // show placeholders if card is placed
                 if (placed) {
                     holders[i].GetComponent<Image>().enabled = true;
                 }
@@ -83,16 +94,21 @@ public class HexagonDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
     public void DestroyOnPos(int index) {
         placed = true;
-        // might not be needed to distroy placeholders
-        index = (index + 6 - (nrRotiri % 6))%6;
 
+        index = (index + 6 - (nrRotiri % 6))%6;
         Destroy(holders[index]);
         Destroy(holders[(index + 1)%6]);
-        Destroy(holders[Math.Abs((index - 1)%6)]);
+        Destroy(holders[Math.Abs((index +5)%6)]);
     }
 
-    public bool IsPlaced() {
-        return placed;
+    public bool PointIsRoadEnd(int index) {
+        index = (index + 6 - (nrRotiri % 6))%6;
+        
+        return holders[index].GetComponent<PlaceHolders>().IsRoadPoint();
+    }
+
+    public bool IsRoad() {
+        return isRoad;
     }
 
     void Update() {

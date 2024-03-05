@@ -12,6 +12,7 @@ public class PlaceHolders : MonoBehaviour, IDropHandler
     public void OnDrop(PointerEventData eventData)
     {   
         GameObject dropped = eventData.pointerDrag;
+        // if card is placed, ignore drop
         if (dropped.GetComponent<HexagonDragDrop>().IsPlaced())
             return;
 

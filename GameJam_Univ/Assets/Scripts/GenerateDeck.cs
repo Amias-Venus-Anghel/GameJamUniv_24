@@ -12,6 +12,7 @@ public class GenerateDeck : MonoBehaviour
     
     void Start()
     {
+        // generate card deck
         GameObject card;
 
         for (int i = 0; i < cardsNumber; i++) {

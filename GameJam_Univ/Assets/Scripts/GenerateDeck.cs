@@ -24,8 +24,8 @@ public class GenerateDeck : MonoBehaviour
         card.transform.SetParent(transform.parent);
 
         for (int i = 0; i < roadCardsNumber; i++) {
-            // int index = Random.RandomRange(0, roadPrefabCards.Length);
-            int index = i % 2;
+            int index = Random.RandomRange(0, roadPrefabCards.Length);
+            // int index = i % 2;
             card = Instantiate(roadPrefabCards[index], transform.position, Quaternion.identity);
             card.transform.SetParent(transform.parent);
         }

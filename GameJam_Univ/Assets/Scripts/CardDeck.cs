@@ -25,8 +25,6 @@ public class CardDeck : MonoBehaviour
 
     public void SetCanRotate(bool canRotate) {
         this.canRotate = canRotate;
-        transform.SetParent(transform.root);
-        transform.SetAsLastSibling();
     }
 }
 

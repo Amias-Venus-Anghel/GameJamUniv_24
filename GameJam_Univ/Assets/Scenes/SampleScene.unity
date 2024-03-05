@@ -169,8 +169,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7107c0c4f9eabce41a50d659773be1eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roadCardsNumber: 3
   cardsNumber: 10
   prefabCard: {fileID: 8839210787546007571, guid: ef352d4b72b4b874c8b9952f9747814a,
+    type: 3}
+  roadPrefabCards:
+  - {fileID: 605411034348312282, guid: 5255ce676ea92fe44b813e6cb129d522, type: 3}
+  - {fileID: 1665540637770156708, guid: de5dc3978eed74a49b951c73c0db6548, type: 3}
+  endPrefabCard: {fileID: 6877100993816626067, guid: 62775d76180611b4a997539f3f277d1c,
     type: 3}
 --- !u!1 &519420028
 GameObject:
@@ -434,6 +440,27 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 790524134}
     m_Modifications:
+    - target: {fileID: 5867146916822496681, guid: ef352d4b72b4b874c8b9952f9747814a,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5867146916822496681, guid: ef352d4b72b4b874c8b9952f9747814a,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5867146916822496681, guid: ef352d4b72b4b874c8b9952f9747814a,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5867146917152074725, guid: ef352d4b72b4b874c8b9952f9747814a,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 104d89a036ff8df41bdb094b7667665f,
+        type: 3}
     - target: {fileID: 5867146917152074727, guid: ef352d4b72b4b874c8b9952f9747814a,
         type: 3}
       propertyPath: starterPoint
@@ -497,12 +524,12 @@ PrefabInstance:
     - target: {fileID: 8839210787546007570, guid: ef352d4b72b4b874c8b9952f9747814a,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -274
+      value: -378
       objectReference: {fileID: 0}
     - target: {fileID: 8839210787546007570, guid: ef352d4b72b4b874c8b9952f9747814a,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -51
+      value: 207
       objectReference: {fileID: 0}
     - target: {fileID: 8839210787546007570, guid: ef352d4b72b4b874c8b9952f9747814a,
         type: 3}
@@ -547,7 +574,7 @@ PrefabInstance:
     - target: {fileID: 8839210787546007571, guid: ef352d4b72b4b874c8b9952f9747814a,
         type: 3}
       propertyPath: m_Name
-      value: CardDeck
+      value: ' StartPoint'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef352d4b72b4b874c8b9952f9747814a, type: 3}

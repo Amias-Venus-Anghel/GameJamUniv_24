@@ -10,12 +10,13 @@ public class HexagonDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 {
     [SerializeField] private bool starterPoint;
     [SerializeField] private GameObject[] holders = null;
+    private CardDeck cardDeck;
     private Image image;
+
     private bool canRotate = false;
     private bool placed = false;
-    
     private int nrRotiri = 0;
-    private CardDeck cardDeck;
+    
 
     void Start() {
         image = GetComponent<Image>();
@@ -23,27 +24,35 @@ public class HexagonDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         for (int i = 0; i < 6; i++) {
             holders[i].AddComponent<PlaceHolders>();
             holders[i].GetComponent<PlaceHolders>().SetIndex(i);
-            if (!starterPoint)
+            if (!starterPoint) {
                 holders[i].GetComponent<Image>().enabled = false;
+            }
+        }
+        if (starterPoint) {
+            image.raycastTarget = false;
+            placed = true;
         }
     }
 
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("Begin drag " + gameObject.transform.parent.name);
-        image.raycastTarget = false;
-        transform.SetParent(transform.root);
-        transform.SetAsLastSibling();
-        canRotate = true;
-        cardDeck.SetCanRotate(true);
+        if (!placed) {
+            Debug.Log("Begin drag");
+            image.raycastTarget = false;
+            transform.SetParent(transform.root);
+            transform.SetAsLastSibling();
+            canRotate = true;
+            cardDeck.SetCanRotate(true);
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log("draggin");
-
-        transform.position = Input.mousePosition;
+        if (!placed) {
+            Debug.Log("draggin");
+            transform.position = Input.mousePosition;
+        }
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -52,9 +61,7 @@ public class HexagonDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         canRotate = false;
         cardDeck.SetCanRotate(false);
 
-        if (!placed) {
-            image.raycastTarget = true;
-        }
+        image.raycastTarget = true;
 
         int[] newIndex = new int[6];
         for (int i = 0; i < 6; i++) {
@@ -71,24 +78,23 @@ public class HexagonDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         }
     }
 
-    public void PlacedOnPos(int index) {
-        Debug.Log("placed on idex: " + index);
-    }
-
     public void DestroyOnPos(int index) {
         placed = true;
-        Debug.Log(index + " " + nrRotiri);
         index = (index + 6 - (nrRotiri % 6))%6;
-        Debug.Log(index);
 
         Destroy(holders[index]);
         Destroy(holders[(index + 1)%6]);
         Destroy(holders[Math.Abs((index - 1)%6)]);
     }
 
+    public bool IsPlaced() {
+        return placed;
+    }
+
     void Update() {
         if (Input.GetMouseButtonDown(1) && canRotate) {
             nrRotiri++;
+            transform.Rotate(0, 0, -60);
         }
     }
 }

@@ -12,8 +12,6 @@ public class CardDeck : MonoBehaviour
         hexagon = transform.GetChild(0);
     }
 
-    
-
     void Update()
     {
         transform.position = hexagon.position;
@@ -26,5 +24,6 @@ public class CardDeck : MonoBehaviour
     public void SetCanRotate(bool canRotate) {
         this.canRotate = canRotate;
     }
+
 }
 

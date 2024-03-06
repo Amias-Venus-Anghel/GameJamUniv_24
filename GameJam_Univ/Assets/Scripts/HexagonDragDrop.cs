@@ -95,6 +95,14 @@ public class HexagonDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     public void DestroyOnPos(int index) {
         placed = true;
 
+        // move hexagon to world map
+        Transform canvasWorld = GameObject.Find("Canvas World").transform;
+        transform.SetParent(canvasWorld, false);
+        cardDeck.transform.SetParent(canvasWorld, false);
+        cardDeck.transform.SetAsFirstSibling();
+        transform.SetAsLastSibling();
+
+        // destroy neigh
         index = (index + 6 - (nrRotiri % 6))%6;
         Destroy(holders[index]);
         Destroy(holders[(index + 1)%6]);

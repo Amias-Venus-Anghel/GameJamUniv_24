@@ -150,6 +150,8 @@ MonoBehaviour:
   - {fileID: 4384909591857982268}
   - {fileID: 4384909592573151394}
   - {fileID: 4384909592140047278}
+  isRoad: 1
+  roadEndPoints: 0200000005000000
 --- !u!1 &4384909591857982268
 GameObject:
   m_ObjectHideFlags: 0

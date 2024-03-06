@@ -31,7 +31,7 @@ public class PlaceHolders : MonoBehaviour, IDropHandler
         }
 
         GameObject.Find("Canvas").GetComponent<CheckOverlay>().Check();
-        Debug.Log("placed on pos " + index);
+        // Debug.Log("placed on pos " + index);
         dropped.DestroyOnPos((index + 3)%6);
         dropped.transform.position = this.transform.position;
         Destroy(this.gameObject);

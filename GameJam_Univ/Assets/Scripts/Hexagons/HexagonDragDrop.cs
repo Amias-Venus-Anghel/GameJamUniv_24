@@ -16,7 +16,7 @@ public class HexagonDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     private Transform creatures;
     // variables
     private bool canRotate = false;
-    private bool placed = false;
+    public bool placed = false;
     private int nrRotiri = 0;
 
     // road checks
@@ -69,6 +69,10 @@ public class HexagonDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (placed) {
+            return;
+        }
+
         // transform position of mouse to world position
         Vector3 pos = GameObject.Find("Main Camera").GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition);
         pos.z = 0;
@@ -86,10 +90,7 @@ public class HexagonDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, I
             creatures.SetParent(GameObject.Find("Canvas Creatures").transform);
         }
 
-        // reactivate raycastTarget to stop overplacing cards
-        if (!placed) {
-            image.raycastTarget = true;
-        }
+        image.raycastTarget = true;
 
         int[] newIndex = new int[6];
         for (int i = 0; i < 6; i++) {
@@ -108,6 +109,10 @@ public class HexagonDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     }
 
     public void DestroyOnPos(int index) {
+        if (placed) {
+            return;
+        }
+
         placed = true;
 
         // destroy neigh

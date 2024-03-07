@@ -14,6 +14,10 @@ public class PlaceHolders : MonoBehaviour, IDropHandler
     {   
         HexagonDragDrop dropped = eventData.pointerDrag.GetComponent<HexagonDragDrop>();
 
+        if (dropped.placed) {
+            return;
+        }
+
         // road compatibility checks
         if (dropped.IsRoad()) {
             // if road but not road point
@@ -30,10 +34,9 @@ public class PlaceHolders : MonoBehaviour, IDropHandler
             return;
         }
 
-        bool overlay = GameObject.Find("Canvas World").GetComponent<CheckOverlay>().Check();
-        // if (overlay) {
-        //     return;
-        // }
+         
+        GameObject.Find("Canvas World").GetComponent<CheckOverlay>().Check();
+
 
         // Debug.Log("placed on pos " + index);
         dropped.DestroyOnPos((index + 3)%6);

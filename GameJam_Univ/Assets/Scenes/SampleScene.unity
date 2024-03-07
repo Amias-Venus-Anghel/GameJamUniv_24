@@ -193,7 +193,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 206.32056
+  orthographic size: 100
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -217,7 +217,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 291, y: 265, z: -10}
+  m_LocalPosition: {x: 152, y: 356, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1261478544}
@@ -473,8 +473,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1261478543}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 19, y: -2.7, z: 10}
-  m_LocalScale: {x: 39.37148, y: 39.37148, z: 3.937148}
+  m_LocalPosition: {x: 383, y: -99, z: 10}
+  m_LocalScale: {x: 77.85191, y: 77.85191, z: 7.7851915}
   m_Children: []
   m_Father: {fileID: 519420032}
   m_RootOrder: 0
@@ -574,7 +574,7 @@ PrefabInstance:
     - target: {fileID: 6008657177717232897, guid: d07419928fe622648af4aa87f5815ffe,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6008657177717232897, guid: d07419928fe622648af4aa87f5815ffe,
         type: 3}
@@ -836,6 +836,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7029842623267599774, guid: 7cbfd47b49ff83f44b6282cadbf486dd,
+        type: 3}
+      propertyPath: roadCardsNumber
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cbfd47b49ff83f44b6282cadbf486dd, type: 3}

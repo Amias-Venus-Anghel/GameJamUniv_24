@@ -13,6 +13,7 @@ public class HexagonDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     [SerializeField] private GameObject[] holders = null;
     private CardDeck cardDeck;
     private Image image;
+    private Transform creatures;
     // variables
     private bool canRotate = false;
     private bool placed = false;
@@ -25,6 +26,8 @@ public class HexagonDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     void Start() {
         image = GetComponent<Image>();
         cardDeck = transform.parent.GetComponent<CardDeck>();
+        creatures = transform.parent.GetChild(transform.parent.childCount - 1);
+
         // initiate placeholders
         for (int i = 0; i < 6; i++) {
             holders[i].AddComponent<PlaceHolders>();
@@ -59,7 +62,9 @@ public class HexagonDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         transform.SetParent(canvasWorld, false);
         cardDeck.transform.SetParent(canvasWorld, false);
         cardDeck.transform.SetAsFirstSibling();
+        creatures.transform.SetParent(canvasWorld);
         transform.SetAsLastSibling();
+        creatures.SetAsLastSibling();
         cardDeck.SetCanRotate(true);
     }
 
@@ -70,6 +75,7 @@ public class HexagonDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         Vector3 pos = GameObject.Find("Main Camera").GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition);
         pos.z = 0;
         transform.position = pos;
+        creatures.position = pos;
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -125,6 +131,12 @@ public class HexagonDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         if ((Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Space)) && canRotate) {
             nrRotiri++;
             transform.Rotate(0, 0, -60);
+            creatures.Rotate(0, 0, -60);
+            // rotate creature sprites;
+            for (int i = 0; i < creatures.childCount; i++) {
+                creatures.GetChild(i).GetChild(0).Rotate(0, 0, 60);
+            }
+
         }
     }
 }

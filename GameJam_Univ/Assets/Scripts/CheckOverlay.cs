@@ -25,6 +25,8 @@ public class CheckOverlay : MonoBehaviour
         List<RaycastResult> results = new List<RaycastResult>();
 
         m_Raycaster.Raycast(m_PointerEventData, results);
+
+        Debug.Log("nr suprapuneri: " + results.Count);
         
         // destroy extra components
         for (int i = 1; i < results.Count; i++) {

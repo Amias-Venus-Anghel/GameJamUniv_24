@@ -55,5 +55,7 @@ MonoBehaviour:
   roadPrefabCards:
   - {fileID: 1665540637770156708, guid: 9e93876104773b84b90946247e728587, type: 3}
   - {fileID: 1665540637770156708, guid: de5dc3978eed74a49b951c73c0db6548, type: 3}
+  - {fileID: 1665540637770156708, guid: 01e1da6a40cae9d498e1bd774887c91c, type: 3}
+  - {fileID: 1665540637770156708, guid: 3f4a461d8f57e6a41a61ed1fc25ff91f, type: 3}
   endPrefabCard: {fileID: 6877100993816626067, guid: 62775d76180611b4a997539f3f277d1c,
     type: 3}

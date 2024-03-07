@@ -951,7 +951,7 @@ PrefabInstance:
     - target: {fileID: 7029842623267599774, guid: 7cbfd47b49ff83f44b6282cadbf486dd,
         type: 3}
       propertyPath: roadCardsNumber
-      value: 3
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7029842623267599774, guid: 7cbfd47b49ff83f44b6282cadbf486dd,
         type: 3}

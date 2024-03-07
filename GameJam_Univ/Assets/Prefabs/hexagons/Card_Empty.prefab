@@ -95,6 +95,7 @@ MonoBehaviour:
   - {fileID: 2957972430050145470}
   - {fileID: 2957972429751604458}
   - {fileID: 2957972430308172088}
+  placed: 0
   isRoad: 0
   roadEndPoints: 
 --- !u!1 &2957972429477111191

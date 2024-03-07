@@ -16,7 +16,7 @@ public class CardDeck : MonoBehaviour
     {
         transform.position = hexagon.position;
 
-        if ((Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Space)) && canRotate) {
+        if ((Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.R)) && canRotate) {
             transform.Rotate(0, 0, -60);
         }
     }

@@ -133,7 +133,7 @@ public class HexagonDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     }
 
     void Update() {
-        if ((Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Space)) && canRotate) {
+        if ((Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.R)) && canRotate) {
             nrRotiri++;
             transform.Rotate(0, 0, -60);
             creatures.Rotate(0, 0, -60);

@@ -64,7 +64,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 977c93b414b5be04b8ed44994ee0d38d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 044cfefc1de8ce142ba87b8d87496748, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 97db00730f6af094faee863681eaa2ea, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 044cfefc1de8ce142ba87b8d87496748, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -259,37 +259,37 @@ MonoBehaviour:
     colorCodeResult: white
   sprites:
   - colorCode: red
-    sprite: {fileID: 21300000, guid: 85aaa74b62801d344ab8b4b0c30d1ee0, type: 3}
+    sprite: {fileID: 21300000, guid: 35fa2ac34437fa742b2cf06f1aef674d, type: 3}
   - colorCode: redM
-    sprite: {fileID: 21300000, guid: 5ceb01a20f9f70a4da12d9bb928e1b0c, type: 3}
+    sprite: {fileID: 21300000, guid: 8d454a1bbdf7a604abacacb171f307ba, type: 3}
   - colorCode: redL
-    sprite: {fileID: 21300000, guid: aa19e8c7a5eccf442a410b80035756ca, type: 3}
+    sprite: {fileID: 21300000, guid: 87b2e06ee0d0fa74596e2b2240a032cb, type: 3}
   - colorCode: blue
-    sprite: {fileID: 21300000, guid: 80adeb6e7e4989346841c758c75e702f, type: 3}
+    sprite: {fileID: 21300000, guid: 044cfefc1de8ce142ba87b8d87496748, type: 3}
   - colorCode: blueM
-    sprite: {fileID: 21300000, guid: 0f503482ef3771446b05e881eae9c8d8, type: 3}
+    sprite: {fileID: 21300000, guid: c0d52608e0862d14ba34079c6c70f26a, type: 3}
   - colorCode: blueL
-    sprite: {fileID: 21300000, guid: 977c93b414b5be04b8ed44994ee0d38d, type: 3}
+    sprite: {fileID: 21300000, guid: e4cac9290f878494a94e15e7ee07c1ec, type: 3}
   - colorCode: yellow
-    sprite: {fileID: 21300000, guid: 68b22266c913f124c8e505c00f6c8ef3, type: 3}
+    sprite: {fileID: 21300000, guid: e500d5809a9aa834cb903d4a944e48be, type: 3}
   - colorCode: yellowM
-    sprite: {fileID: 21300000, guid: 10120a07b807d9748afb11bb79357c4d, type: 3}
+    sprite: {fileID: 21300000, guid: 7c77caf226d20ab409f2f2c1a81fbdfc, type: 3}
   - colorCode: yellowL
-    sprite: {fileID: 21300000, guid: 14bca969d93c3ee4b8dc608727558470, type: 3}
+    sprite: {fileID: 21300000, guid: 23f063a5174b5f54885baf94fbc0f56b, type: 3}
   - colorCode: green
-    sprite: {fileID: 21300000, guid: 9f6ed27a1907fb2468e7a2f877ae5cd1, type: 3}
+    sprite: {fileID: 21300000, guid: cf849af7f122dbe4b81bacf097b56112, type: 3}
   - colorCode: greenM
-    sprite: {fileID: 21300000, guid: 97db00730f6af094faee863681eaa2ea, type: 3}
+    sprite: {fileID: 21300000, guid: 0393c03b0d9c364438818f201ba57928, type: 3}
   - colorCode: orange
-    sprite: {fileID: 21300000, guid: ee47c210744dbf74caf3d813819c3aa1, type: 3}
+    sprite: {fileID: 21300000, guid: b9e15cf9f799e694481c24056c710596, type: 3}
   - colorCode: orangeM
-    sprite: {fileID: 21300000, guid: d4b567c6305947746bbd4cf0b93f40a0, type: 3}
+    sprite: {fileID: 21300000, guid: 889075bd72be7e842a5bc2f8424b1f8a, type: 3}
   - colorCode: purple
-    sprite: {fileID: 21300000, guid: e6d36efcaeb144746a73caa9dea7b679, type: 3}
+    sprite: {fileID: 21300000, guid: 646551ff39a9b6e47bd5f2284b68ce80, type: 3}
   - colorCode: purpleM
-    sprite: {fileID: 21300000, guid: 6d7b6d293f7d6784694b285dacd115b6, type: 3}
+    sprite: {fileID: 21300000, guid: 8ebaa64bc2c52eb4fa274d7d357caacc, type: 3}
   - colorCode: white
-    sprite: {fileID: 21300000, guid: f44ba34e70ceee34eb5ad4f835457680, type: 3}
+    sprite: {fileID: 21300000, guid: acc0f71fdd018a449ac61dce7705038f, type: 3}
   baseCodes:
   - red
   - blue
@@ -483,7 +483,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 977c93b414b5be04b8ed44994ee0d38d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 044cfefc1de8ce142ba87b8d87496748, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -557,7 +557,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 977c93b414b5be04b8ed44994ee0d38d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 044cfefc1de8ce142ba87b8d87496748, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -881,7 +881,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5ceb01a20f9f70a4da12d9bb928e1b0c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 044cfefc1de8ce142ba87b8d87496748, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1080,7 +1080,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 977c93b414b5be04b8ed44994ee0d38d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 044cfefc1de8ce142ba87b8d87496748, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

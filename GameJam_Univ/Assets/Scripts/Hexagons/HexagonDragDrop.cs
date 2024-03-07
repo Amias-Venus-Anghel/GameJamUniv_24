@@ -54,7 +54,6 @@ public class HexagonDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("Begin drag");
         image.raycastTarget = false;
         canRotate = true;
         // move to world canvas
@@ -70,7 +69,6 @@ public class HexagonDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log("draggin");
         // transform position of mouse to world position
         Vector3 pos = GameObject.Find("Main Camera").GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition);
         pos.z = 0;
@@ -80,7 +78,6 @@ public class HexagonDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("End drag");
         canRotate = false;
         cardDeck.SetCanRotate(false);
         creatures.position = transform.position;
@@ -114,9 +111,7 @@ public class HexagonDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         placed = true;
 
         // destroy neigh
-        // Debug.Log("initial index at pos: " + index + " nr rotiri " + nrRotiri);
         index = (index + 6 - (nrRotiri % 6))%6;
-        // Debug.Log("index at position " + index);
         Destroy(holders[index]);
         Destroy(holders[(index + 1)%6]);
         Destroy(holders[Math.Abs((index +5)%6)]);

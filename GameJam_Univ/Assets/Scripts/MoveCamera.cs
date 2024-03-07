@@ -18,14 +18,25 @@ public class MoveCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Vector3 dir = new Vector3(0, 0, 0);
+        // if (Input.mousePosition.x > Screen.width - edge || Input.GetKey(KeyCode.D))
+        //     dir = Vector3.right;
+        // if (Input.mousePosition.x < edge || Input.GetKey(KeyCode.A))
+        //     dir = Vector3.left;
+        // if (Input.mousePosition.y < edge || Input.GetKey(KeyCode.S))
+        //     dir = Vector3.down;
+        // if (Input.mousePosition.y > Screen.height - edge || Input.GetKey(KeyCode.W))
+        //     dir = Vector3.up;
+        // transform.position = transform.position + dir * speed * Time.deltaTime;
+
         Vector3 dir = new Vector3(0, 0, 0);
-        if (Input.mousePosition.x > Screen.width - edge || Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D))
             dir = Vector3.right;
-        if (Input.mousePosition.x < edge || Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
             dir = Vector3.left;
-        if (Input.mousePosition.y < edge || Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S))
             dir = Vector3.down;
-        if (Input.mousePosition.y > Screen.height - edge || Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W))
             dir = Vector3.up;
         transform.position = transform.position + dir * speed * Time.deltaTime;
 

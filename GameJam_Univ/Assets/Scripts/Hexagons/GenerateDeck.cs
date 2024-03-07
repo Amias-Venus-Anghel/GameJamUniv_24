@@ -4,18 +4,15 @@ using UnityEngine;
 
 public class GenerateDeck : MonoBehaviour
 {
-    [SerializeField] int roadCardsNumber = 3;
-    [SerializeField] int cardsNumber = 10;
     [SerializeField] GameObject prefabCard = null;
     [SerializeField] GameObject[] roadPrefabCards = null;
     [SerializeField] GameObject endPrefabCard = null;
-    
-    void Start()
-    {
+
+    public void GenerateNewDeck(int roads, int base_cards) {
         // generate card deck
         GameObject card;
 
-        for (int i = 0; i < cardsNumber; i++) {
+        for (int i = 0; i < base_cards; i++) {
             card = Instantiate(prefabCard, transform.position, Quaternion.identity);
             card.transform.SetParent(transform.parent, false);
             card.transform.position = this.transform.position;
@@ -25,12 +22,18 @@ public class GenerateDeck : MonoBehaviour
         card.transform.SetParent(transform.parent, false);
         card.transform.position = this.transform.position;
 
-        for (int i = 0; i < roadCardsNumber; i++) {
+        for (int i = 0; i < roads; i++) {
             int index = Random.RandomRange(0, roadPrefabCards.Length);
             // int index = i % 2;
             card = Instantiate(roadPrefabCards[index], transform.position, Quaternion.identity);
             card.transform.SetParent(transform.parent, false);
             card.transform.position = this.transform.position;
+        }
+    }
+
+    public void DestroyLeftovers() {
+        for (int i = 1; i < transform.parent.childCount; i++) {
+            Destroy(transform.parent.GetChild(i).gameObject);
         }
     }
 }

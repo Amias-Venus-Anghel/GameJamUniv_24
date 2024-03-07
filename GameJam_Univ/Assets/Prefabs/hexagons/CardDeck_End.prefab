@@ -595,6 +595,7 @@ MonoBehaviour:
   - {fileID: 8410255162501521931}
   - {fileID: 8410255161979502997}
   - {fileID: 8410255162750036633}
+  placed: 0
   isRoad: 1
   roadEndPoints: 000000000100000002000000030000000400000005000000
 --- !u!1001 &3271640022668935806
@@ -667,12 +668,12 @@ PrefabInstance:
     - target: {fileID: 2841522914375181453, guid: 937e1afcaf421404bb069da1a9ab9311,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.8
+      value: -0.3
       objectReference: {fileID: 0}
     - target: {fileID: 2841522914375181453, guid: 937e1afcaf421404bb069da1a9ab9311,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.7
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 2841522914375181453, guid: 937e1afcaf421404bb069da1a9ab9311,
         type: 3}

@@ -42,13 +42,18 @@ public class CreatureManager : MonoBehaviour
             colorsDict.Add(s.colorCode, s.sprite);
         }
 
-        // random select where creatures are on hexagon
-
         // assign random color codes
         for (int i = 0; i < transform.childCount; i++) {
             int index = UnityEngine.Random.RandomRange(0, 3);
             string color = baseCodes[index];
             transform.GetChild(i).GetComponent<CreatureMerge>().SetColorCode(color, colorsDict[color]);
+        }
+
+        // random select where creatures are on hexagon
+        int deleteNr = UnityEngine.Random.RandomRange(3, 5);
+        for (int i = 0; i < deleteNr; i++) {
+            int index = UnityEngine.Random.RandomRange(0, transform.childCount);
+            Destroy(transform.GetChild(index).gameObject);
         }
     }
 

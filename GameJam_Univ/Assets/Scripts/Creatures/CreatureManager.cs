@@ -50,8 +50,8 @@ public class CreatureManager : MonoBehaviour
         }
 
         // random select where creatures are on hexagon
-        int deleteNr = UnityEngine.Random.RandomRange(3, 5);
-        for (int i = 0; i < deleteNr; i++) {
+        int keep = UnityEngine.Random.RandomRange(4, 5);
+        for (int i = 0; i < keep; i++) {
             int index = UnityEngine.Random.RandomRange(0, transform.childCount);
             Destroy(transform.GetChild(index).gameObject);
         }

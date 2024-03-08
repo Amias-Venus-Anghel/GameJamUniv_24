@@ -15,7 +15,7 @@ public class MoveCamera : MonoBehaviour
     private float maxSize = 400, minSize = 30;
     private Vector3 initSizeV;
     private float initSize;
-    private float xLimitMin = 50, xLimitMax = 700, yLimitMin = 50, yLimitMax = 500;
+    private float xLimitMin = 50, xLimitMax = 100, yLimitMin = 400, yLimitMax = 450;
     private float minSpeed = 100, maxSpeed = 200;
 
     void Start() {
@@ -86,6 +86,21 @@ public class MoveCamera : MonoBehaviour
             );
         }
 
+    }
+
+    public void IncreaseMaxSize(Vector3 cardPos)
+    {
+        if (cardPos.x < xLimitMin)
+            xLimitMin -= 50;
+
+        if (cardPos.x > xLimitMax)
+            xLimitMax += 50;
+
+        if (cardPos.y > yLimitMax)
+            yLimitMax += 50;
+
+        if (cardPos.y < yLimitMin)
+            yLimitMin -= 50;
     }
 
 

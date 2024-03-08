@@ -52,8 +52,8 @@ public class GenerateDeck : MonoBehaviour
             currentCard = transform.parent.GetChild(transform.parent.childCount - 1).GetChild(0).GetComponent<HexagonDragDrop>();
             currentCard.MakeDragable(true);
         }
-        else if (currentCard.placed && transform.parent.childCount <= 1) {
-            GameObject.Find("GameMaster").GetComponent<GameMaster>().StartEnemyWave();
-        }
+        // else if (currentCard.placed && transform.parent.childCount <= 1) {
+        //     GameObject.Find("GameMaster").GetComponent<GameMaster>().StartEnemyWave();
+        // }
     }
 }

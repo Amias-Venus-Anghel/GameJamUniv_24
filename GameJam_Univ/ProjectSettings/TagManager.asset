@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Creature
   - Enemy
+  - Waypoint
+  - Endpoint
+  - Card
   layers:
   - Default
   - TransparentFX

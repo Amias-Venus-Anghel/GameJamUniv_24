@@ -594,5 +594,6 @@ MonoBehaviour:
   - {fileID: 6008657177876339648}
   - {fileID: 6008657178244447124}
   - {fileID: 6008657177718869574}
+  placed: 0
   isRoad: 1
   roadEndPoints: 02000000

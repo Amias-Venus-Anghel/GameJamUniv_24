@@ -23,7 +23,7 @@ public class HexagonDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     [SerializeField] private bool isRoad = false;
     [SerializeField] private int[] roadEndPoints = null; // index of road end points
     
-    void Start() {
+    void Awake() {
         image = GetComponent<Image>();
         cardDeck = transform.parent.GetComponent<CardDeck>();
         creatures = transform.parent.GetChild(transform.parent.childCount - 1);
@@ -143,5 +143,9 @@ public class HexagonDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, I
             }
 
         }
+    }
+
+    public void MakeDragable(bool draggable) {
+        image.raycastTarget = draggable;
     }
 }

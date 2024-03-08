@@ -19,7 +19,7 @@ public class GameMaster : MonoBehaviour
     [SerializeField] private float score = 0;
     [SerializeField] private float roundTime = 10;
     [SerializeField] int roadCardsNumber = 3;
-    [SerializeField] int cardsNumber = 10;
+    [SerializeField] int cardsNumber = 5;
 
     private float endRoundTime = 0;
 
@@ -54,18 +54,21 @@ public class GameMaster : MonoBehaviour
         // generate new 
         generator.DestroyLeftovers();
         // TO DO: ajust nr of card per level
+        roadCardsNumber += 1;
+        cardsNumber += 1;
         generator.GenerateNewDeck(roadCardsNumber, cardsNumber);
+
+        // debug score
+        AddScore((int)(endRoundTime - Time.time));
         // reset time
         // TO DO: ajust time for round
         roundTime = roundTime + roadCardsNumber * 0.2f + cardsNumber * 0.2f;
         endRoundTime = Time.time + roundTime;
-        // debug score
-        AddScore(10);
     }
 
     // called when enemy is killed
     public void AddScore(int score_add) {
         score += score_add;
         score_text.text = score.ToString();
-    }
+    } 
 }

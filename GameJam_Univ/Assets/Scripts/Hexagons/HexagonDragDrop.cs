@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEditor.UI;
 using UnityEngine.UI;
 using System;
 
@@ -64,7 +63,7 @@ public class HexagonDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         Transform canvasWorld = GameObject.Find("Canvas World").transform;
         transform.SetParent(canvasWorld, false);
         cardDeck.transform.SetParent(canvasWorld, false);
-        cardDeck.transform.SetAsFirstSibling();
+        cardDeck.transform.SetSiblingIndex(1);
         transform.SetAsLastSibling();
         if (!endPoint) {
             creatures.transform.SetParent(canvasWorld);

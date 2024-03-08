@@ -3,12 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using System;
+using UnityEngine.UI;
 
 
 public class PlaceHolders : MonoBehaviour, IDropHandler
 {
     [SerializeField] private int index = 0;
     private bool isRoadEndPoint;
+
+    void Start() {
+        // GameObject.Find("GameMaster").GetComponent<GameMaster>().ListenForWavePlaceholders(GetComponent<Image>());
+    }
 
     public void OnDrop(PointerEventData eventData)
     {   

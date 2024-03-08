@@ -24,6 +24,8 @@ public class GameMaster : MonoBehaviour
     private float endRoundTime = 0;
 
     private List<CreaturePositionForAttack> toPositions;
+    private List<Image> placeholders;
+    [SerializeField] private Sprite placeholderReplacer = null;
 
     void Awake() {
         startPosition = GameObject.Find(" StartPoint").transform.position;
@@ -48,6 +50,7 @@ public class GameMaster : MonoBehaviour
         for (int i = 1; i < worldCanvas.childCount; i++) {
             Destroy(worldCanvas.GetChild(i).gameObject);
         }
+
         for (int i = 0; i < creatureCanvas.childCount; i++) {
             Destroy(creatureCanvas.GetChild(i).gameObject);
         }
@@ -72,7 +75,17 @@ public class GameMaster : MonoBehaviour
         // add bonus score if time left for hexagon placement
         AddScore((int)(endRoundTime - Time.time));
 
-        StartCoroutine(Wait());
+        StartCoroutine(CallToAction());
+    }
+
+    IEnumerator CallToAction() {
+        // foreach (Image i in placeholders) {
+        //     if (i != null) {
+        //         i.sprite = placeholderReplacer;
+        //     }
+        // }
+
+        yield return new WaitForSeconds(2);
 
         // call all existing creatures to positions 
         foreach (CreaturePositionForAttack c in toPositions) {
@@ -83,17 +96,17 @@ public class GameMaster : MonoBehaviour
         }
     }
 
-    IEnumerator Wait() {
-        yield return new WaitForSeconds(2);
-    }
-
     // called when enemy is killed
     public void AddScore(int score_add) {
         score += score_add;
         score_text.text = score.ToString();
-    } 
+    }
 
     public void ListenForWave(CreaturePositionForAttack creature) {
         toPositions.Add(creature);
+    }
+
+    public void ListenForWavePlaceholders(Image image) {
+        placeholders.Add(image);
     }
 }

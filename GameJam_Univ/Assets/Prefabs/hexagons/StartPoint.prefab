@@ -587,6 +587,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   starterPoint: 1
+  endPoint: 0
   holders:
   - {fileID: 6008657177292231771}
   - {fileID: 6008657178199237679}

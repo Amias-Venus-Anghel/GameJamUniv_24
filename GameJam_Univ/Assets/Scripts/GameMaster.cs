@@ -23,11 +23,15 @@ public class GameMaster : MonoBehaviour
 
     private float endRoundTime = 0;
 
+    private List<CreaturePositionForAttack> toPositions;
+
     void Start() {
         startPosition = GameObject.Find(" StartPoint").transform.position;
         generator = GameObject.Find("CardsSpawner").GetComponent<GenerateDeck>();
         worldCanvas = GameObject.Find("Canvas World").transform;
         creatureCanvas = GameObject.Find("Canvas Creatures").transform;
+
+        toPositions = new List<CreaturePositionForAttack>();
         NewRound();
     }
 
@@ -58,12 +62,27 @@ public class GameMaster : MonoBehaviour
         cardsNumber += 1;
         generator.GenerateNewDeck(roadCardsNumber, cardsNumber);
 
-        // debug score
-        AddScore((int)(endRoundTime - Time.time));
         // reset time
         // TO DO: ajust time for round
         roundTime = roundTime + roadCardsNumber * 0.2f + cardsNumber * 0.2f;
         endRoundTime = Time.time + roundTime;
+    }
+
+    public void StartEnemyWave() {
+        // add bonus score if time left for hexagon placement
+        AddScore((int)(endRoundTime - Time.time));
+
+        // Wait();
+
+        // call all existing creatures to positions 
+        // foreach (CreaturePositionForAttack c in toPositions) {
+        //     // announce creature
+        //     c.ToPosition();
+        // }
+    }
+
+    IEnumerator Wait() {
+        yield return new WaitForSeconds(2);
     }
 
     // called when enemy is killed
@@ -71,4 +90,8 @@ public class GameMaster : MonoBehaviour
         score += score_add;
         score_text.text = score.ToString();
     } 
+
+    public void ListenForWave(CreaturePositionForAttack creature) {
+        toPositions.Add(creature);
+    }
 }

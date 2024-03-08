@@ -53,7 +53,7 @@ public class GenerateDeck : MonoBehaviour
             currentCard.MakeDragable(true);
         }
         else if (currentCard.placed && transform.parent.childCount <= 1) {
-            GameObject.Find("GameMaster").GetComponent<GameMaster>().NewRound();
+            GameObject.Find("GameMaster").GetComponent<GameMaster>().StartEnemyWave();
         }
     }
 }

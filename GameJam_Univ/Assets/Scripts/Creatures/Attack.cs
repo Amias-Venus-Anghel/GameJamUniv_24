@@ -10,8 +10,9 @@ public class Attack : MonoBehaviour
     private GameObject target = null;
     private GameObject projectile;
     private float range = 150;
-    float time = 0;
-    float fireTime = 0.6f;
+    private float time = 0;
+    private float fireTime = 0.6f, destroyTime = 10f;
+    private bool fireStarted = false;
 
     // Update is called once per frame
     void Update()
@@ -33,6 +34,12 @@ public class Attack : MonoBehaviour
 
             }
         }
+        if (fireStarted == true)
+        {
+            destroyTime -= Time.deltaTime;
+            if (destroyTime <= 0)
+                Destroy(this.gameObject);
+        }
     }
 
     void SpawnProjectile()
@@ -45,6 +52,7 @@ public class Attack : MonoBehaviour
             projectile.GetComponent<Projectile>().SetTarget(target);
             projectile.GetComponent<Projectile>().SetRange(range);
             projectile.GetComponent<Projectile>().SetInitPos(transform.position);
+            fireStarted = true;
         }
     }
 

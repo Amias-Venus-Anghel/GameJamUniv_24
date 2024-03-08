@@ -45,7 +45,7 @@ public class GameMaster : MonoBehaviour
     // called to start new round
     public void NewRound() {
         // destroy placed assets
-        for (int i = 0; i < worldCanvas.childCount; i++) {
+        for (int i = 1; i < worldCanvas.childCount; i++) {
             Destroy(worldCanvas.GetChild(i).gameObject);
         }
         for (int i = 0; i < creatureCanvas.childCount; i++) {

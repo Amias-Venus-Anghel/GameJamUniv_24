@@ -25,7 +25,7 @@ public class GameMaster : MonoBehaviour
 
     private List<CreaturePositionForAttack> toPositions;
 
-    void Start() {
+    void Awake() {
         startPosition = GameObject.Find(" StartPoint").transform.position;
         generator = GameObject.Find("CardsSpawner").GetComponent<GenerateDeck>();
         worldCanvas = GameObject.Find("Canvas World").transform;
@@ -72,13 +72,15 @@ public class GameMaster : MonoBehaviour
         // add bonus score if time left for hexagon placement
         AddScore((int)(endRoundTime - Time.time));
 
-        // Wait();
+        StartCoroutine(Wait());
 
         // call all existing creatures to positions 
-        // foreach (CreaturePositionForAttack c in toPositions) {
-        //     // announce creature
-        //     c.ToPosition();
-        // }
+        foreach (CreaturePositionForAttack c in toPositions) {
+            // announce creature
+            if (c != null) {
+                c.ToPosition();
+            }
+        }
     }
 
     IEnumerator Wait() {

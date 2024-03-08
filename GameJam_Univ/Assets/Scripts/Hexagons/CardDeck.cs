@@ -5,7 +5,7 @@ using UnityEngine;
 public class CardDeck : MonoBehaviour
 {
     private Transform hexagon;
-    private bool canRotate; 
+    private bool canRotate;
 
     void Start()
     {

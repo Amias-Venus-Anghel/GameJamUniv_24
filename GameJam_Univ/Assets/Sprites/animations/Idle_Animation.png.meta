@@ -32,33 +32,6 @@ TextureImporter:
   - first:
       213: 3328021973082312509
     second: Idle_Animation_9
-  - first:
-      213: 7111089119589940250
-    second: Idle_Animation_10
-  - first:
-      213: 3753674289879589876
-    second: Idle_Animation_11
-  - first:
-      213: -6704526778508999788
-    second: Idle_Animation_12
-  - first:
-      213: 2020022116495220352
-    second: Idle_Animation_13
-  - first:
-      213: -6710169183854950082
-    second: Idle_Animation_14
-  - first:
-      213: -2392202173622855586
-    second: Idle_Animation_15
-  - first:
-      213: -8106800445620765396
-    second: Idle_Animation_16
-  - first:
-      213: 2335557596672788526
-    second: Idle_Animation_17
-  - first:
-      213: 4622286678933817552
-    second: Idle_Animation_18
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -130,6 +103,42 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1

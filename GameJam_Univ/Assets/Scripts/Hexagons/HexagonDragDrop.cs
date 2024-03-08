@@ -55,7 +55,7 @@ public class HexagonDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     public void OnBeginDrag(PointerEventData eventData)
     {
         image.raycastTarget = false;
-        canRotate = true;
+        canRotate = true && !placed;
         // move to world canvas
         Transform canvasWorld = GameObject.Find("Canvas World").transform;
         transform.SetParent(canvasWorld, false);
@@ -64,7 +64,7 @@ public class HexagonDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         creatures.transform.SetParent(canvasWorld);
         transform.SetAsLastSibling();
         creatures.SetAsLastSibling();
-        cardDeck.SetCanRotate(true);
+        cardDeck.SetCanRotate(canRotate);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -83,7 +83,7 @@ public class HexagonDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     public void OnEndDrag(PointerEventData eventData)
     {
         canRotate = false;
-        cardDeck.SetCanRotate(false);
+        cardDeck.SetCanRotate(canRotate);
         creatures.position = transform.position;
         // if placed, move creatures to their canvas
         if (placed) {

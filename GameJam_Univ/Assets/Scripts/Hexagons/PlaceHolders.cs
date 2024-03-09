@@ -10,8 +10,10 @@ public class PlaceHolders : MonoBehaviour, IDropHandler
 {
     [SerializeField] private int index = 0;
     private bool isRoadEndPoint;
+     AudioManager audioManager;
 
     void Start() {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         GameObject.Find("GameMaster").GetComponent<GameMaster>().ListenForWavePlaceholders(GetComponent<Image>());
     }
 
@@ -46,6 +48,7 @@ public class PlaceHolders : MonoBehaviour, IDropHandler
         // Debug.Log("placed on pos " + index);
         dropped.DestroyOnPos((index + 3)%6);
         dropped.transform.position = this.transform.position;
+         audioManager.PlaySFX(audioManager.placed);
         Camera.main.GetComponent<MoveCamera>().IncreaseMaxSize(dropped.transform.position);
         Destroy(this.gameObject);
     }

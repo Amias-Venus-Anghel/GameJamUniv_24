@@ -10,6 +10,7 @@ public class GameMaster : MonoBehaviour
     [SerializeField] TMP_Text score_text = null;
     [SerializeField] Slider time_slider = null;
     [SerializeField] GameObject startPointPrefab = null;
+     AudioManager audioManager;
 
     private Vector3 startPosition;
     private GenerateDeck generator; 
@@ -34,6 +35,7 @@ public class GameMaster : MonoBehaviour
     private WaveSpawner waveSpawner;
 
     void Awake() {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         startPosition = GameObject.Find(" StartPoint").transform.position;
         generator = GameObject.Find("CardsSpawner").GetComponent<GenerateDeck>();
         worldCanvas = GameObject.Find("Canvas World").transform;
@@ -56,6 +58,7 @@ public class GameMaster : MonoBehaviour
 
     // called to start new round
     public void NewRound() {
+         audioManager.PlaySFX(audioManager.startingRound);
         // destroy left over cards
         generator.DestroyLeftovers();
 

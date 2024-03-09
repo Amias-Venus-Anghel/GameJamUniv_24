@@ -53,6 +53,7 @@ public class GameMaster : MonoBehaviour
 
     // called to start new round
     public void NewRound() {
+        Camera.main.GetComponent<MoveCamera>().ResetCamera();
         waveSpawner.DestroyLeftovers();
         enemyStage = false;
         

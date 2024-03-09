@@ -13,15 +13,17 @@ public class MoveCamera : MonoBehaviour
     private Camera cam;
     private float maxSize = 400, minSize = 30;
     private Vector3 initSizeV;
-    private float initSize;
+    private float initSize = 100;
     private float xLimitMin = 50, xLimitMax = 100, yLimitMin = 400, yLimitMax = 450;
     private float minSpeed = 100, maxSpeed = 200;
+    Vector3 initPos = new Vector3(51, 390, -10);
 
     void Start() {
         cam = GetComponent<Camera>();
         initSize = cam.orthographicSize;
         initSizeV = /*new Vector3(1.7f, 2, 1) */ transform.localScale / initSize;
         speed = minSpeed;
+        initPos = Camera.main.transform.position;
     }
 
     // Update is called once per frame
@@ -47,9 +49,13 @@ public class MoveCamera : MonoBehaviour
         transform.position = smoothPosition;
 
         // zoom in
-        if (Input.GetKey(KeyCode.E) && cam.orthographicSize >= minSize)
+        if ((Input.GetKey(KeyCode.E) || Input.GetAxis("Mouse ScrollWheel") > 0) && cam.orthographicSize >= minSize)
         {   
-            cam.orthographicSize -= zoomSensibility * Time.deltaTime;
+            if (Input.GetKey(KeyCode.E))
+                cam.orthographicSize -= zoomSensibility * Time.deltaTime;
+            else
+                cam.orthographicSize -= zoomSensibility * 4 * Time.deltaTime;
+
             if (cam.orthographicSize < (minSize+maxSize)/2)
                 speed = minSpeed;
 
@@ -61,9 +67,12 @@ public class MoveCamera : MonoBehaviour
 
         }
         // zoom out
-        if (Input.GetKey(KeyCode.Q) && cam.orthographicSize <= maxSize)
+        if ((Input.GetKey(KeyCode.Q) || Input.GetAxis("Mouse ScrollWheel") < 0) && cam.orthographicSize <= maxSize)
         {
-            cam.orthographicSize += zoomSensibility * Time.deltaTime;
+            if (Input.GetKey(KeyCode.Q))
+                cam.orthographicSize += zoomSensibility * Time.deltaTime;
+            else
+                cam.orthographicSize += zoomSensibility * 4 * Time.deltaTime;
             if (cam.orthographicSize > (minSize + maxSize) / 2)
                 speed = maxSpeed;
 
@@ -91,5 +100,13 @@ public class MoveCamera : MonoBehaviour
             yLimitMin -= 50;
     }
 
-
+    public void ResetCamera()
+    {
+        xLimitMin = 50;
+        xLimitMax = 100;
+        yLimitMin = 400;
+        yLimitMax = 450;
+        GetComponent<Camera>().orthographicSize = initSize;
+        this.GetComponent<Transform>().transform.position = initPos;
+    }
 }

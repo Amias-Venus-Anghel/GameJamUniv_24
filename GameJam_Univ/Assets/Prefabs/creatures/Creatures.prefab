@@ -309,6 +309,7 @@ GameObject:
   - component: {fileID: 1998386919399676312}
   - component: {fileID: 4047912547084635294}
   - component: {fileID: 8196736036060873726}
+  - component: {fileID: 4396118032863516231}
   m_Layer: 5
   m_Name: Creature_R
   m_TagString: Creature
@@ -432,6 +433,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 640d55c3142e0844f959a33729e97dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4396118032863516231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3788976900477797552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4547f5f93c8c8643adfe19076f5faaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 1330428682882254915, guid: c490d6c032aba234cb53c6d6cb2a9b79,
+    type: 3}
+  fireTime: 0.6
+  destroyTime: 10
+  range: 25
+  power: 1
 --- !u!1 &4593383811363849766
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,6 +614,7 @@ GameObject:
   - component: {fileID: 4525706440189231339}
   - component: {fileID: 4803587557009844921}
   - component: {fileID: 1639753047527963992}
+  - component: {fileID: 7693965094194812877}
   m_Layer: 5
   m_Name: Creature_DR
   m_TagString: Creature
@@ -718,6 +738,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 640d55c3142e0844f959a33729e97dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7693965094194812877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5447912431593942647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4547f5f93c8c8643adfe19076f5faaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 1330428682882254915, guid: c490d6c032aba234cb53c6d6cb2a9b79,
+    type: 3}
+  fireTime: 0.6
+  destroyTime: 10
+  range: 25
+  power: 1
 --- !u!1 &5533213802386789385
 GameObject:
   m_ObjectHideFlags: 0
@@ -733,6 +771,7 @@ GameObject:
   - component: {fileID: 2873249361993557784}
   - component: {fileID: 5247651994903946135}
   - component: {fileID: 8286837996538321558}
+  - component: {fileID: 479566027303352374}
   m_Layer: 5
   m_Name: Creature_DL
   m_TagString: Creature
@@ -856,6 +895,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 640d55c3142e0844f959a33729e97dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &479566027303352374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5533213802386789385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4547f5f93c8c8643adfe19076f5faaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 1330428682882254915, guid: c490d6c032aba234cb53c6d6cb2a9b79,
+    type: 3}
+  fireTime: 0.6
+  destroyTime: 10
+  range: 25
+  power: 1
 --- !u!1 &5557127396937810019
 GameObject:
   m_ObjectHideFlags: 0
@@ -945,6 +1002,7 @@ GameObject:
   - component: {fileID: 1810510952975899593}
   - component: {fileID: 3820378177165314702}
   - component: {fileID: 6546778899406916807}
+  - component: {fileID: 6423785927149238610}
   m_Layer: 5
   m_Name: Creature_L
   m_TagString: Creature
@@ -1068,6 +1126,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 640d55c3142e0844f959a33729e97dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6423785927149238610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5846445678942893994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4547f5f93c8c8643adfe19076f5faaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 1330428682882254915, guid: c490d6c032aba234cb53c6d6cb2a9b79,
+    type: 3}
+  fireTime: 0.6
+  destroyTime: 10
+  range: 25
+  power: 1
 --- !u!1 &6695714498074291211
 GameObject:
   m_ObjectHideFlags: 0
@@ -1157,6 +1233,7 @@ GameObject:
   - component: {fileID: 3693608293264268485}
   - component: {fileID: 8028584772559865183}
   - component: {fileID: 706803802410627620}
+  - component: {fileID: 982628778634716854}
   m_Layer: 5
   m_Name: Creature_UL
   m_TagString: Creature
@@ -1280,6 +1357,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 640d55c3142e0844f959a33729e97dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &982628778634716854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7341281415852628595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4547f5f93c8c8643adfe19076f5faaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 1330428682882254915, guid: c490d6c032aba234cb53c6d6cb2a9b79,
+    type: 3}
+  fireTime: 0.6
+  destroyTime: 10
+  range: 25
+  power: 1
 --- !u!1 &9063685667035621234
 GameObject:
   m_ObjectHideFlags: 0
@@ -1295,6 +1390,7 @@ GameObject:
   - component: {fileID: 4455943864196724160}
   - component: {fileID: 2297647285266646527}
   - component: {fileID: 9014266945019671542}
+  - component: {fileID: 4836958834038437799}
   m_Layer: 5
   m_Name: Creature_UR
   m_TagString: Creature
@@ -1418,3 +1514,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 640d55c3142e0844f959a33729e97dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4836958834038437799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9063685667035621234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4547f5f93c8c8643adfe19076f5faaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 1330428682882254915, guid: c490d6c032aba234cb53c6d6cb2a9b79,
+    type: 3}
+  fireTime: 0.6
+  destroyTime: 10
+  range: 25
+  power: 1

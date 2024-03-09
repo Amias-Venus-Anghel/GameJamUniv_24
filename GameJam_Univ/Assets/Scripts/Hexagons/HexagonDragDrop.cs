@@ -14,16 +14,19 @@ public class HexagonDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     private CardDeck cardDeck;
     private Image image;
     private Transform creatures;
+     AudioManager audioManager;
     // variables
     private bool canRotate = false;
     public bool placed = false;
     private int nrRotiri = 0;
+
 
     // road checks
     [SerializeField] private bool isRoad = false;
     [SerializeField] private int[] roadEndPoints = null; // index of road end points
     
     void Awake() {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         image = GetComponent<Image>();
         cardDeck = transform.parent.GetComponent<CardDeck>();
         if (!endPoint) {
@@ -154,6 +157,7 @@ public class HexagonDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         if ((Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.R)) && canRotate) {
             nrRotiri++;
             transform.Rotate(0, 0, -60);
+             audioManager.PlaySFX(audioManager.rotated);
             if (!endPoint) {
                 creatures.Rotate(0, 0, -60);
                 // rotate creature sprites;

@@ -14,6 +14,12 @@ public class Attack : MonoBehaviour
     private GameObject projectile;
     private float time = 0;
     private bool fireStarted = false;
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -55,6 +61,7 @@ public class Attack : MonoBehaviour
             projectile.GetComponent<Projectile>().SetInitPos(transform.position);
             projectile.GetComponent<Projectile>().SetPower(power);
             fireStarted = true;
+            audioManager.PlaySFX(audioManager.attack);
         }
     }
 

@@ -11,8 +11,10 @@ public class CreatureMerge : MonoBehaviour
     private float mergeSpeed = 10;
     [SerializeField] private string color_cod = "blue";
     private string merge_cod;
+    AudioManager audioManager;
 
     void Start() {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         manager = transform.parent.gameObject.GetComponent<CreatureManager>();
         image = transform.GetChild(0).GetComponent<Image>();
     }
@@ -41,6 +43,7 @@ public class CreatureMerge : MonoBehaviour
                 // play animation on top of objects
                 // destroy one of the creatures
                 Destroy(mergeWith.gameObject);
+                audioManager.PlaySFX(audioManager.combine);
                 color_cod = merge_cod;
                 manager.SetStatsForCode(color_cod, this.gameObject);
                 image.sprite = manager.GetSpriteOfCode(color_cod);

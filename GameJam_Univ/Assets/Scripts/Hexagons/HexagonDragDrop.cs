@@ -9,7 +9,7 @@ public class HexagonDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 {
     // referances
     [SerializeField] private bool starterPoint = false;
-    [SerializeField] private bool endPoint = false;
+    [SerializeField] public bool endPoint = false;
     [SerializeField] private GameObject[] holders = null;
     private CardDeck cardDeck;
     private Image image;

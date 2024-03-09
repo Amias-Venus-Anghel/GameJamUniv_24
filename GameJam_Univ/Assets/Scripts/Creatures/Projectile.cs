@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    GameObject target = null;
-    float speed = 0.3f;
-    float range;
-    Vector3 initPos;
-
+    private GameObject target = null;
+    private float speed = 0.3f;
+    private float range;
+    private Vector3 initPos;
+    private float power;
 
     // Update is called once per frame
     void Update()
@@ -25,7 +25,10 @@ public class Projectile : MonoBehaviour
 
             if (Mathf.Abs(transform.position.x - target.transform.position.x) <= 0.05f &&
                 Mathf.Abs(transform.position.y - target.transform.position.y) <= 0.05f)
+            {
                 Destroy(this.gameObject);
+                target.GetComponent<Damage>().GetDamage(power);
+            }
         }
     }
 
@@ -49,5 +52,9 @@ public class Projectile : MonoBehaviour
     public void SetInitPos(Vector3 pos)
     {
         this.initPos = pos;
+    }
+    public void SetPower(float power)
+    {
+        this.power = power;
     }
 }

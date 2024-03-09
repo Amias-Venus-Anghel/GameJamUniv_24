@@ -10,8 +10,15 @@ public class GenerateDeck : MonoBehaviour
 
     private HexagonDragDrop currentCard;
     private bool announce;
+    private bool placeEndRoad;
 
     public List<Transform> waypoints;
+
+    private GameMaster gameMaster;
+
+    void Start() {
+        gameMaster = GameObject.Find("GameMaster").GetComponent<GameMaster>();
+    }
 
     public void GenerateNewDeck(int roads, int base_cards) {
         // generate card deck
@@ -48,6 +55,7 @@ public class GenerateDeck : MonoBehaviour
         currentCard.MakeDragable(true);
 
         announce = true;
+        placeEndRoad = false;
     }
 
     public void DestroyLeftovers() {
@@ -59,11 +67,16 @@ public class GenerateDeck : MonoBehaviour
     void Update() {
         // make next card draggable
         if (currentCard.placed && transform.parent.childCount > 1) {
+            if (placeEndRoad) {
+                // announce gamemaster that road has been build
+                gameMaster.RoadHasBeenBuild();
+            }
             currentCard = transform.parent.GetChild(transform.parent.childCount - 1).GetChild(0).GetComponent<HexagonDragDrop>();
             currentCard.MakeDragable(true);
+            placeEndRoad = currentCard.endPoint;
         }
         else if (currentCard.placed && transform.parent.childCount <= 1 && announce) {
-            GameObject.Find("GameMaster").GetComponent<GameMaster>().StartEnemyWave();
+            gameMaster.StartEnemyWave();
             announce = false;
         }
     }

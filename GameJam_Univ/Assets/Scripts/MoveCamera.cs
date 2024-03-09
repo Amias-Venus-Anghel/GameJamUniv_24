@@ -13,21 +13,39 @@ public class MoveCamera : MonoBehaviour
     private Camera cam;
     private float maxSize = 400, minSize = 30;
     private Vector3 initSizeV;
-    private float initSize;
+    private float initSize = 100;
     private float xLimitMin = 50, xLimitMax = 100, yLimitMin = 400, yLimitMax = 450;
     private float minSpeed = 100, maxSpeed = 200;
+    Vector3 initPos = new Vector3(51, 390, -10);
+
+    private float timer = 0.0f;
+    private float waitTime = 0.2f;
 
     void Start() {
         cam = GetComponent<Camera>();
         initSize = cam.orthographicSize;
         initSizeV = /*new Vector3(1.7f, 2, 1) */ transform.localScale / initSize;
         speed = minSpeed;
+        initPos = Camera.main.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
         Vector3 dir = new Vector3(0, 0, 0);
+
+        if (Input.GetKey(KeyCode.Mouse2))
+        {
+            timer += Time.deltaTime;
+            if (timer >= waitTime)
+            {
+                var newPosition = new Vector3();
+                newPosition.x = Input.GetAxis("Mouse X") * speed * 4 * Time.deltaTime;
+                newPosition.y = Input.GetAxis("Mouse Y") * speed * 4 * Time.deltaTime;
+                transform.Translate(-newPosition * 3);
+            }
+        }
+
         if (Input.GetKey(KeyCode.D))
             dir = Vector3.right;
         if (Input.GetKey(KeyCode.A))
@@ -47,9 +65,13 @@ public class MoveCamera : MonoBehaviour
         transform.position = smoothPosition;
 
         // zoom in
-        if (Input.GetKey(KeyCode.E) && cam.orthographicSize >= minSize)
+        if ((Input.GetKey(KeyCode.E) || Input.GetAxis("Mouse ScrollWheel") > 0) && cam.orthographicSize >= minSize)
         {   
-            cam.orthographicSize -= zoomSensibility * Time.deltaTime;
+            if (Input.GetKey(KeyCode.E))
+                cam.orthographicSize -= zoomSensibility * Time.deltaTime;
+            else
+                cam.orthographicSize -= zoomSensibility * zoomSensibility / 2 * Time.deltaTime;
+
             if (cam.orthographicSize < (minSize+maxSize)/2)
                 speed = minSpeed;
 
@@ -58,12 +80,14 @@ public class MoveCamera : MonoBehaviour
                 Mathf.PingPong(scalingTime, 0.0001f) + cam.orthographicSize * initSizeV.x,
                 Mathf.PingPong(scalingTime, 0.0001f) + cam.orthographicSize * initSizeV.y, 1
             );
-
         }
         // zoom out
-        if (Input.GetKey(KeyCode.Q) && cam.orthographicSize <= maxSize)
+        if ((Input.GetKey(KeyCode.Q) || Input.GetAxis("Mouse ScrollWheel") < 0) && cam.orthographicSize <= maxSize)
         {
-            cam.orthographicSize += zoomSensibility * Time.deltaTime;
+            if (Input.GetKey(KeyCode.Q))
+                cam.orthographicSize += zoomSensibility * Time.deltaTime;
+            else
+                cam.orthographicSize += zoomSensibility * zoomSensibility / 2 * Time.deltaTime;
             if (cam.orthographicSize > (minSize + maxSize) / 2)
                 speed = maxSpeed;
 
@@ -74,6 +98,8 @@ public class MoveCamera : MonoBehaviour
             );
         }
 
+        if (cam.orthographicSize <= minSize)
+            cam.orthographicSize = minSize;
     }
 
     public void IncreaseMaxSize(Vector3 cardPos)
@@ -91,5 +117,13 @@ public class MoveCamera : MonoBehaviour
             yLimitMin -= 50;
     }
 
-
+    public void ResetCamera()
+    {
+        xLimitMin = 50;
+        xLimitMax = 100;
+        yLimitMin = 400;
+        yLimitMax = 450;
+        GetComponent<Camera>().orthographicSize = initSize;
+        this.GetComponent<Transform>().transform.position = initPos;
+    }
 }

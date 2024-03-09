@@ -42,6 +42,7 @@ public class CreatureMerge : MonoBehaviour
                 // destroy one of the creatures
                 Destroy(mergeWith.gameObject);
                 color_cod = merge_cod;
+                manager.SetStatsForCode(color_cod, this.gameObject);
                 image.sprite = manager.GetSpriteOfCode(color_cod);
                 merge_cod = null;
             }

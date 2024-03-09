@@ -13,7 +13,7 @@ public class Damage : MonoBehaviour
         if (life <= 0)
         {
             GameObject.Find("GameMaster").GetComponent<GameMaster>().AddScore(score);
-
+            GameObject.Find("GameMaster").GetComponent<WaveSpawner>().EnemyDied();
             Destroy(this.gameObject);
         }
     }

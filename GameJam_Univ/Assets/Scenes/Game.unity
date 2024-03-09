@@ -1339,9 +1339,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 468337472, guid: 80e46c9d8744aa24482f9965b132ea16, type: 3}
+      propertyPath: enemies.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 468337472, guid: 80e46c9d8744aa24482f9965b132ea16, type: 3}
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 603763600}
+    - target: {fileID: 468337472, guid: 80e46c9d8744aa24482f9965b132ea16, type: 3}
+      propertyPath: enemies.Array.data[1]
+      value: 
+      objectReference: {fileID: 1128452020934370993, guid: 6a23c3ffe7c7a134eabab91d833b489e,
+        type: 3}
     - target: {fileID: 7704926518888013225, guid: 80e46c9d8744aa24482f9965b132ea16,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class GameMaster : MonoBehaviour
 {
     [SerializeField] TMP_Text score_text = null;
-    [SerializeField] TMP_Text time_text = null;
+    [SerializeField] Slider time_slider = null;
     [SerializeField] GameObject startPointPrefab = null;
 
     private Vector3 startPosition;
@@ -25,6 +25,7 @@ public class GameMaster : MonoBehaviour
 
     private float endRoundTime = 0;
     private bool enemyStage = false;
+    private bool roadIsBuild = false;
 
     private List<CreaturePositionForAttack> toPositions;
     private List<Image> placeholders = null;
@@ -45,16 +46,43 @@ public class GameMaster : MonoBehaviour
     }
 
     void Update() {
-        if (Time.time >= endRoundTime && enemyStage) {
+        if (Time.time >= endRoundTime) {
             NewRound();
         }
-        time_text.text = (endRoundTime - Time.time).ToString();
+        // adjust timer
+        float timeleft = endRoundTime - Time.time;
+        time_slider.value =  timeleft / roundTime;
     }
 
     // called to start new round
     public void NewRound() {
+        // destroy left over cards
+        generator.DestroyLeftovers();
+
+        // adjust difficulty only if level finished
+        if (roadIsBuild) {
+            // if enemy stage happened
+            if (enemyStage) {
+                // this is a new round
+                enemyStage = false;
+                AdjustDifficulty();
+                ClearScene();
+            } else {
+                // if wave didnt start but road is build and time up, start enemy wave
+                StartEnemyWave();
+            }
+        }
+        else {
+            roadIsBuild = false;
+            ClearScene();
+        }
+        
+        // reset time
+        endRoundTime = Time.time + roundTime;
+    }
+
+    private void ClearScene() {
         waveSpawner.DestroyLeftovers();
-        enemyStage = false;
         
         if (placeholders == null) {
             placeholders = new List<Image>();
@@ -69,18 +97,12 @@ public class GameMaster : MonoBehaviour
             Destroy(creatureCanvas.GetChild(i).gameObject);
         }
 
-        AdjustDifficulty();
-
         // create new start point
         GameObject start = Instantiate(startPointPrefab, worldCanvas);
         start.transform.position = startPosition;
-        // generate new 
-        generator.DestroyLeftovers();
-        
-        generator.GenerateNewDeck(roadCardsNumber, cardsNumber);
 
-        // reset time
-        endRoundTime = Time.time + roundTime;
+        //  generate new pack
+        generator.GenerateNewDeck(roadCardsNumber, cardsNumber);
     }
 
     public void StartEnemyWave() {
@@ -99,7 +121,7 @@ public class GameMaster : MonoBehaviour
         cardsNumber += 1;   
         // adjust nr of enemies and speed of spawning
         enemiesWave += 2;
-        if (enemiesSpawnSpeed > 1) {
+        if (enemiesSpawnSpeed > 1.4f) {
             enemiesSpawnSpeed -= 1;
         }
 
@@ -124,7 +146,7 @@ public class GameMaster : MonoBehaviour
             }
         }
 
-        yield return new WaitForSeconds(1);
+        // yield return new WaitForSeconds(1);
         waveSpawner.spawnEnemyWaves(enemiesWave, enemiesSpawnSpeed);
     }
 
@@ -148,5 +170,9 @@ public class GameMaster : MonoBehaviour
         AddScore((int)(endRoundTime - Time.time));
 
         endRoundTime = 0;
+    }
+
+    public void RoadHasBeenBuild() {
+        roadIsBuild = true;
     }
 }

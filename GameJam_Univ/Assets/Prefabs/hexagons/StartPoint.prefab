@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 6008657177587371603}
   m_Layer: 5
   m_Name: place 2
-  m_TagString: Untagged
+  m_TagString: RoadPlace
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

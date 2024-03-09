@@ -18,6 +18,9 @@ public class MoveCamera : MonoBehaviour
     private float minSpeed = 100, maxSpeed = 200;
     Vector3 initPos = new Vector3(51, 390, -10);
 
+    private float timer = 0.0f;
+    private float waitTime = 0.2f;
+
     void Start() {
         cam = GetComponent<Camera>();
         initSize = cam.orthographicSize;
@@ -30,6 +33,19 @@ public class MoveCamera : MonoBehaviour
     void Update()
     {
         Vector3 dir = new Vector3(0, 0, 0);
+
+        if (Input.GetKey(KeyCode.Mouse2))
+        {
+            timer += Time.deltaTime;
+            if (timer >= waitTime)
+            {
+                var newPosition = new Vector3();
+                newPosition.x = Input.GetAxis("Mouse X") * speed * 4 * Time.deltaTime;
+                newPosition.y = Input.GetAxis("Mouse Y") * speed * 4 * Time.deltaTime;
+                transform.Translate(-newPosition * 3);
+            }
+        }
+
         if (Input.GetKey(KeyCode.D))
             dir = Vector3.right;
         if (Input.GetKey(KeyCode.A))
@@ -54,7 +70,7 @@ public class MoveCamera : MonoBehaviour
             if (Input.GetKey(KeyCode.E))
                 cam.orthographicSize -= zoomSensibility * Time.deltaTime;
             else
-                cam.orthographicSize -= zoomSensibility * 4 * Time.deltaTime;
+                cam.orthographicSize -= zoomSensibility * zoomSensibility / 2 * Time.deltaTime;
 
             if (cam.orthographicSize < (minSize+maxSize)/2)
                 speed = minSpeed;
@@ -64,7 +80,6 @@ public class MoveCamera : MonoBehaviour
                 Mathf.PingPong(scalingTime, 0.0001f) + cam.orthographicSize * initSizeV.x,
                 Mathf.PingPong(scalingTime, 0.0001f) + cam.orthographicSize * initSizeV.y, 1
             );
-
         }
         // zoom out
         if ((Input.GetKey(KeyCode.Q) || Input.GetAxis("Mouse ScrollWheel") < 0) && cam.orthographicSize <= maxSize)
@@ -72,7 +87,7 @@ public class MoveCamera : MonoBehaviour
             if (Input.GetKey(KeyCode.Q))
                 cam.orthographicSize += zoomSensibility * Time.deltaTime;
             else
-                cam.orthographicSize += zoomSensibility * 4 * Time.deltaTime;
+                cam.orthographicSize += zoomSensibility * zoomSensibility / 2 * Time.deltaTime;
             if (cam.orthographicSize > (minSize + maxSize) / 2)
                 speed = maxSpeed;
 
@@ -83,6 +98,8 @@ public class MoveCamera : MonoBehaviour
             );
         }
 
+        if (cam.orthographicSize <= minSize)
+            cam.orthographicSize = minSize;
     }
 
     public void IncreaseMaxSize(Vector3 cardPos)

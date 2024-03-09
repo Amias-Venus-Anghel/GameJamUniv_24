@@ -45,7 +45,7 @@ public class WaveSpawner : MonoBehaviour
             }
             countdown -= Time.deltaTime;
         }
-
+        
        if (deadEnemies == totalWaves) {
             GetComponent<GameMaster>().AllEnemiesKilled();
        }
@@ -57,9 +57,7 @@ public class WaveSpawner : MonoBehaviour
     }
 
     void spawnWave() {
-        //for(int i = 0; i < waveNo; i++) {
-            spawnEnemy(); // nr de enemies intr-un wave: 1
-        //}
+        spawnEnemy();
         waveNo++;
     }
 

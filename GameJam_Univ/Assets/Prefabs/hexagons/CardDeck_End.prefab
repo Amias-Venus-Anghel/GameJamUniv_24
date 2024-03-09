@@ -68,7 +68,7 @@ GameObject:
   - component: {fileID: 8410255161979502999}
   m_Layer: 5
   m_Name: place 4
-  m_TagString: Untagged
+  m_TagString: RoadPlace
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 8410255162066918386}
   m_Layer: 5
   m_Name: place 1
-  m_TagString: Untagged
+  m_TagString: RoadPlace
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 8410255162501521941}
   m_Layer: 5
   m_Name: place 3
-  m_TagString: Untagged
+  m_TagString: RoadPlace
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -290,7 +290,7 @@ GameObject:
   - component: {fileID: 8410255162552944489}
   m_Layer: 5
   m_Name: place 2
-  m_TagString: Untagged
+  m_TagString: RoadPlace
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -364,7 +364,7 @@ GameObject:
   - component: {fileID: 8410255162750036635}
   m_Layer: 5
   m_Name: place 5
-  m_TagString: Untagged
+  m_TagString: RoadPlace
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -438,7 +438,7 @@ GameObject:
   - component: {fileID: 8410255162860224041}
   m_Layer: 5
   m_Name: place 0
-  m_TagString: Untagged
+  m_TagString: RoadPlace
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -511,6 +511,7 @@ GameObject:
   - component: {fileID: 8410255163242487908}
   - component: {fileID: 8410255163242487909}
   - component: {fileID: 8410255163242487911}
+  - component: {fileID: 3475083977994752288}
   m_Layer: 5
   m_Name: Hexagon
   m_TagString: Endpoint
@@ -564,7 +565,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9af76eebcc5aff248bbc2cd2fb15a0a3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5d1d3842822acfa4ab7cd27aad0fefe8, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -598,3 +599,17 @@ MonoBehaviour:
   placed: 0
   isRoad: 1
   roadEndPoints: 000000000100000002000000030000000400000005000000
+--- !u!114 &3475083977994752288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8410255163242487835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52a634d831ad90a4e8fc4221b672fae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  happyEnd: {fileID: 21300000, guid: 5d1d3842822acfa4ab7cd27aad0fefe8, type: 3}
+  hurtEnd: {fileID: 21300000, guid: 8b8bda1b652aa2247bec01a5e181d3d2, type: 3}

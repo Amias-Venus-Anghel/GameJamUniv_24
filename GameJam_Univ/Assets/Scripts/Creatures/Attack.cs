@@ -78,4 +78,10 @@ public class Attack : MonoBehaviour
     {
         return (Vector2.Distance(Target.transform.position, transform.position) <= range);
     }
+
+    public void SetPowers(float newPower, float lifeTime, float fireRate) {
+        power = newPower;
+        destroyTime = lifeTime;
+        fireTime = fireRate;
+    }
 }

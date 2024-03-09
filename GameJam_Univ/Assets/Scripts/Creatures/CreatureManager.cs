@@ -8,6 +8,9 @@ public class CreatureManager : MonoBehaviour
     // first string is merged between color codes, second string is resulting color code
     private Dictionary<string, string> combinationsDict;
     private Dictionary<string, Sprite> colorsDict;
+    private Dictionary<string, float> powerDict;
+    private Dictionary<string, float> lifeTimeDict;
+    private Dictionary<string, float> fireRateDict;
 
     [Serializable]
     public struct colorCombination {
@@ -20,6 +23,9 @@ public class CreatureManager : MonoBehaviour
     public struct colorSprites {
         public string colorCode;
         public Sprite sprite;
+        public float power;
+        public float fireRate;
+        public float lifeTime;
     }
 
     [SerializeField] private colorCombination[] combinations = null;
@@ -35,11 +41,17 @@ public class CreatureManager : MonoBehaviour
             combinationsDict.Add(code, c.colorCodeResult);
         }
 
-        /* adding color sprites to dictionary */
+        /* adding color sprites and power to dictionary */
         colorsDict = new Dictionary<string, Sprite>();
+        powerDict = new Dictionary<string, float>();
+        fireRateDict = new Dictionary<string, float>();
+        lifeTimeDict = new Dictionary<string, float>();
 
         foreach (colorSprites s in sprites) {
             colorsDict.Add(s.colorCode, s.sprite);
+            powerDict.Add(s.colorCode, s.power);
+            lifeTimeDict.Add(s.colorCode, s.lifeTime);
+            fireRateDict.Add(s.colorCode, s.fireRate);
         }
 
         // assign random color codes
@@ -47,6 +59,7 @@ public class CreatureManager : MonoBehaviour
             int index = UnityEngine.Random.Range(0, 3);
             string color = baseCodes[index];
             transform.GetChild(i).GetComponent<CreatureMerge>().SetColorCode(color, colorsDict[color]);
+            SetStatsForCode(color, transform.GetChild(i).gameObject);
         }
 
         // random select number of creatures on hexagon
@@ -86,5 +99,15 @@ public class CreatureManager : MonoBehaviour
             Debug.Log("missing sprite " + color_code);
             return null;
         }
+    }
+
+    public void SetStatsForCode(string color_code, GameObject creature) {
+        if (!colorsDict.ContainsKey(color_code)) {
+            Debug.Log("Missing color " + color_code);
+            return;
+        }
+            
+        Attack attack = creature.GetComponent<Attack>();
+        attack.SetPowers(powerDict[color_code], lifeTimeDict[color_code], fireRateDict[color_code]);
     }
 }

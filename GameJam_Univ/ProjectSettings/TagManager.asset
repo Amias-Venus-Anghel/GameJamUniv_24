@@ -4,13 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Creatures
-  - Creature
   - Card
+  - Creatures
   - Road
   - Endpoint
+  - Creature
   - Enemy
-  - Audio
+  - RoadPlace
   layers:
   - Default
   - TransparentFX

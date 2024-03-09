@@ -20,6 +20,8 @@ public class GameMaster : MonoBehaviour
     [SerializeField] private float roundTime = 10;
     [SerializeField] int roadCardsNumber = 3;
     [SerializeField] int cardsNumber = 5;
+    [SerializeField] int enemiesWave = 5;
+    [SerializeField] int enemiesSpawnSpeed = 5;
 
     private float endRoundTime = 0;
     private bool enemyStage = false;
@@ -67,19 +69,17 @@ public class GameMaster : MonoBehaviour
             Destroy(creatureCanvas.GetChild(i).gameObject);
         }
 
+        AdjustDifficulty();
+
         // create new start point
         GameObject start = Instantiate(startPointPrefab, worldCanvas);
         start.transform.position = startPosition;
         // generate new 
         generator.DestroyLeftovers();
-        // TO DO: ajust nr of card per level
-        roadCardsNumber += 1;
-        cardsNumber += 1;
+        
         generator.GenerateNewDeck(roadCardsNumber, cardsNumber);
 
         // reset time
-        // TO DO: ajust time for round
-        roundTime = roundTime + roadCardsNumber * 0.2f + cardsNumber * 0.2f;
         endRoundTime = Time.time + roundTime;
     }
 
@@ -93,6 +93,20 @@ public class GameMaster : MonoBehaviour
         StartCoroutine(CallToAction());
     }
 
+    private void AdjustDifficulty() {
+        // TO DO: ajust nr of card per level
+        roadCardsNumber += 1;
+        cardsNumber += 1;   
+        // adjust nr of enemies and speed of spawning
+        enemiesWave += 2;
+        if (enemiesSpawnSpeed > 1) {
+            enemiesSpawnSpeed -= 1;
+        }
+
+        // TO DO: ajust time for round
+        roundTime = roundTime + roadCardsNumber * 0.2f + cardsNumber * 0.2f;
+    }
+
     IEnumerator CallToAction() {
         foreach (Image i in placeholders) {
             if (i != null) {
@@ -100,7 +114,7 @@ public class GameMaster : MonoBehaviour
             }
         }
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
 
         // call all existing creatures to positions 
         foreach (CreaturePositionForAttack c in toPositions) {
@@ -110,9 +124,8 @@ public class GameMaster : MonoBehaviour
             }
         }
 
-        yield return new WaitForSeconds(2);
-        waveSpawner.spawnEnemyWaves();
-
+        yield return new WaitForSeconds(1);
+        waveSpawner.spawnEnemyWaves(enemiesWave, enemiesSpawnSpeed);
     }
 
     // called when enemy is killed
@@ -127,5 +140,13 @@ public class GameMaster : MonoBehaviour
 
     public void ListenForWavePlaceholders(Image image) {
         placeholders.Add(image);
+    }
+
+    public void AllEnemiesKilled() {
+        // add bonus from time left
+        // TO DO: check if enemies died by endpoint or killed 
+        AddScore((int)(endRoundTime - Time.time));
+
+        endRoundTime = 0;
     }
 }

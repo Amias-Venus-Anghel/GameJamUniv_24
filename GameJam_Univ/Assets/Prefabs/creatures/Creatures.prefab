@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8845739319026452846}
   - component: {fileID: 7315834706643101307}
   - component: {fileID: 2682755059716038524}
-  - component: {fileID: 3982668619082747658}
   m_Layer: 5
   m_Name: Sprite
   m_TagString: Untagged
@@ -75,25 +74,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!95 &3982668619082747658
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1414979096233246907}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 81599ec4f9e28c449b0bdc0712436642, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2003325902052079312
 GameObject:
   m_ObjectHideFlags: 0
@@ -105,7 +85,6 @@ GameObject:
   - component: {fileID: 8818500771574988038}
   - component: {fileID: 1659079326217797394}
   - component: {fileID: 4889305114791800103}
-  - component: {fileID: 1912712023553386660}
   m_Layer: 5
   m_Name: Sprite
   m_TagString: Untagged
@@ -169,25 +148,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!95 &1912712023553386660
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2003325902052079312}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ab9c6f60d5b11ad40b578a8537ba699b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2422779360017545322
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,7 +443,6 @@ GameObject:
   - component: {fileID: 3746127612775320552}
   - component: {fileID: 5913638389280441749}
   - component: {fileID: 516272127331290762}
-  - component: {fileID: 4385859940469341304}
   m_Layer: 5
   m_Name: Sprite
   m_TagString: Untagged
@@ -547,25 +506,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!95 &4385859940469341304
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4593383811363849766}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 98649fbea8674ad43a2be4007a84cba1, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4658862570280187033
 GameObject:
   m_ObjectHideFlags: 0
@@ -577,7 +517,6 @@ GameObject:
   - component: {fileID: 2122940661128416306}
   - component: {fileID: 4445312887898799064}
   - component: {fileID: 1304830450522891267}
-  - component: {fileID: 8437765335677279834}
   m_Layer: 5
   m_Name: Sprite
   m_TagString: Untagged
@@ -641,25 +580,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!95 &8437765335677279834
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4658862570280187033}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 59af0aa6d13adab418f6d3992010eaba, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5447912431593942647
 GameObject:
   m_ObjectHideFlags: 0
@@ -947,7 +867,6 @@ GameObject:
   - component: {fileID: 3292623564237979881}
   - component: {fileID: 3395856490257362796}
   - component: {fileID: 1289543988089053694}
-  - component: {fileID: 8493772101824038901}
   m_Layer: 5
   m_Name: Sprite
   m_TagString: Untagged
@@ -1011,25 +930,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!95 &8493772101824038901
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5557127396937810019}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 323263b5613c9d544b09bcce84703831, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5846445678942893994
 GameObject:
   m_ObjectHideFlags: 0
@@ -1179,7 +1079,6 @@ GameObject:
   - component: {fileID: 7091968938845406253}
   - component: {fileID: 2217192741405285733}
   - component: {fileID: 8776178683288948532}
-  - component: {fileID: 6719447857012606798}
   m_Layer: 5
   m_Name: Sprite
   m_TagString: Untagged
@@ -1243,25 +1142,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!95 &6719447857012606798
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6695714498074291211}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6ac60ad8e595a65448cb94ce1a426619, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7341281415852628595
 GameObject:
   m_ObjectHideFlags: 0

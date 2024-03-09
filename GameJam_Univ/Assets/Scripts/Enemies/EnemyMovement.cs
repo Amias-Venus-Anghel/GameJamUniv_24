@@ -8,16 +8,17 @@ public class EnemyMovement : MonoBehaviour
     public float range = 0.5f;
     private Transform target;
     private int index = 0;
-    private GameObject endCard = null;
     private Transform hexagonEnd = null;
-    private HexagonDragDrop hexagonEndScript;
 
     private List<Transform> points;
 
     private int index_hexagon = 1;
-    private bool isEnd = false;
+
+    private WaveSpawner spawner = null;
 
     void Start() {
+        spawner = GameObject.Find("GameMaster").GetComponent<WaveSpawner>();
+
         index_hexagon = 1;
         hexagonEnd = GameObject.FindGameObjectWithTag("Endpoint").transform;
         points = GameObject.Find("CardsSpawner").GetComponent<GenerateDeck>().waypoints;
@@ -28,6 +29,7 @@ public class EnemyMovement : MonoBehaviour
     void Update() {
         if(Vector3.Distance(transform.position, target.position) <= 0.1f) { 
             if (target == hexagonEnd) {
+                spawner.EnemyDied();
                 Destroy(gameObject); // de pus endpoint-ul in dreptul cararii
             }
             else if (index_hexagon >= points.Count) {

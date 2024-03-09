@@ -7,18 +7,22 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] Transform[] enemies = null;
     public Transform spawnPoint;
     public float spawnTime = 5f;
+    public float totalWaves = 5;
     private int waveNo = 1;
     private float countdown = 2f;
 
     private GameObject hexagonEnd = null;
     private HexagonDragDrop hexagonEndScript;
+    private bool timeToSpawn = false;
 
+    public void spawnEnemyWaves() {
+        timeToSpawn = true;
+    }        
+    
     void Update() {
-        hexagonEnd = GameObject.FindGameObjectWithTag("Endpoint");
-        Debug.Log(hexagonEnd.gameObject.name);
-        hexagonEndScript = hexagonEnd.GetComponent<HexagonDragDrop>();
-        if(hexagonEndScript.placed) {
-             if(countdown <= 0f) {
+        if(timeToSpawn && waveNo <= totalWaves) {
+            if(countdown <= 0f) {
+                Debug.Log("yup45");
                 spawnWave();
                 countdown = spawnTime;
             }

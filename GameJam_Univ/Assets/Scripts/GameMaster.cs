@@ -27,11 +27,15 @@ public class GameMaster : MonoBehaviour
     private List<Image> placeholders;
     [SerializeField] private Sprite placeholderReplacer = null;
 
+    private WaveSpawner waveSpawner;
+
     void Awake() {
         startPosition = GameObject.Find(" StartPoint").transform.position;
         generator = GameObject.Find("CardsSpawner").GetComponent<GenerateDeck>();
         worldCanvas = GameObject.Find("Canvas World").transform;
         creatureCanvas = GameObject.Find("Canvas Creatures").transform;
+
+        waveSpawner = this.GetComponent<WaveSpawner>();
 
         toPositions = new List<CreaturePositionForAttack>();
         NewRound();
@@ -94,6 +98,10 @@ public class GameMaster : MonoBehaviour
                 c.ToPosition();
             }
         }
+
+        yield return new WaitForSeconds(2);
+        waveSpawner.spawnEnemyWaves();
+
     }
 
     // called when enemy is killed

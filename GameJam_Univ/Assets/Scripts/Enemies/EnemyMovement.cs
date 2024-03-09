@@ -20,23 +20,19 @@ public class EnemyMovement : MonoBehaviour
         index_hexagon = 1;
         hexagonEnd = GameObject.FindGameObjectsWithTag("Endpoint")[0];
         endpoint = hexagonEnd.transform.Find("waypoint");
-        target = endpoint;
-        // StartCoroutine(Wait());
+        points = GameObject.Find("Waypoints").GetComponent<AddWaypoints>().points;
+
+        target = points[points.Length - index_hexagon];
     }
 
-    // IEnumerator Wait() {
-    //     yield return new WaitForSeconds(5);
-
-        
-    // }
-
     void Update() {
-        points = GameObject.Find("Waypoints").GetComponent<AddWaypoints>().points;
+
+        Debug.Log("Waypoints: " + points.Length);
         if(Vector3.Distance(transform.position, target.position) <= range) {
+            Debug.Log("if if else");
             if(target == endpoint) {
                 Destroy(gameObject); // de pus endpoint-ul in dreptul cararii
             } else {
-                Debug.Log("if if else");
                 if(index_hexagon >= points.Length) {
                     Debug.Log("if if else if");
                     isEnd = true;
@@ -47,17 +43,18 @@ public class EnemyMovement : MonoBehaviour
             }
         } else {
             Debug.Log("else");
-            if(!isEnd){
-                Debug.Log("else if");
+            if(isEnd) {
+                target = endpoint;
+            } else{
                 Debug.Log(index_hexagon);
                 target = points[points.Length - index_hexagon];
-            } else {
-                Debug.Log("else else");
-                target = endpoint;
             }
         }
         Debug.Log("out of if");
         Vector3 dir = target.position - transform.position;
         transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
+        
     }
+
+
 }

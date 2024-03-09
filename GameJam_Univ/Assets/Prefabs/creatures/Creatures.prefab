@@ -85,7 +85,6 @@ GameObject:
   - component: {fileID: 8818500771574988038}
   - component: {fileID: 1659079326217797394}
   - component: {fileID: 4889305114791800103}
-  - component: {fileID: 1912712023553386660}
   m_Layer: 5
   m_Name: Sprite
   m_TagString: Untagged
@@ -149,25 +148,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!95 &1912712023553386660
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2003325902052079312}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ab9c6f60d5b11ad40b578a8537ba699b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2422779360017545322
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,7 +160,7 @@ GameObject:
   - component: {fileID: 7725560423644309506}
   m_Layer: 5
   m_Name: Creatures
-  m_TagString: Untagged
+  m_TagString: Creatures
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -377,7 +357,7 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 10, y: 0}
+  m_Offset: {x: 0, y: 0}
   m_Size: {x: 30, y: 30}
   m_Direction: 0
 --- !u!114 &7970253244238110212
@@ -663,7 +643,7 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 6, y: -15}
+  m_Offset: {x: 0, y: 0}
   m_Size: {x: 30, y: 30}
   m_Direction: 0
 --- !u!114 &2870109235382686845
@@ -801,7 +781,7 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -6, y: -15}
+  m_Offset: {x: 0, y: 0}
   m_Size: {x: 30, y: 30}
   m_Direction: 0
 --- !u!114 &467017176953551899
@@ -1013,7 +993,7 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -10, y: 0}
+  m_Offset: {x: 0, y: 0}
   m_Size: {x: 30, y: 30}
   m_Direction: 0
 --- !u!114 &1397184679252094258
@@ -1225,7 +1205,7 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -6, y: 15}
+  m_Offset: {x: 0, y: 0}
   m_Size: {x: 30, y: 30}
   m_Direction: 0
 --- !u!114 &9210049000003841483
@@ -1363,7 +1343,7 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 6, y: 15}
+  m_Offset: {x: 0, y: 0}
   m_Size: {x: 30, y: 30}
   m_Direction: 0
 --- !u!114 &9056536089045694973

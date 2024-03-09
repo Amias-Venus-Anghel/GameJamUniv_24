@@ -9,35 +9,45 @@ public class GenerateDeck : MonoBehaviour
     [SerializeField] GameObject endPrefabCard = null;
 
     private HexagonDragDrop currentCard;
+    private bool announce;
+
+    public List<Transform> waypoints;
 
     public void GenerateNewDeck(int roads, int base_cards) {
         // generate card deck
         GameObject card;
 
+        // normal cards
         for (int i = 0; i < base_cards; i++) {
             card = Instantiate(prefabCard, transform.position, Quaternion.identity);
             card.transform.SetParent(transform.parent, false);
             card.transform.position = this.transform.position;
             card.transform.GetChild(0).GetComponent<HexagonDragDrop>().MakeDragable(false);
         }
-
+        // endpoint
         card = Instantiate(endPrefabCard, transform.position, Quaternion.identity);
         card.transform.SetParent(transform.parent, false);
         card.transform.position = this.transform.position;
         card.transform.GetChild(0).GetComponent<HexagonDragDrop>().MakeDragable(false);
 
+        waypoints = new List<Transform>();
+        // roads
         for (int i = 0; i < roads; i++) {
-            int index = Random.RandomRange(0, roadPrefabCards.Length);
-            // int index = i % 2;
+            int index = Random.Range(0, roadPrefabCards.Length);
             card = Instantiate(roadPrefabCards[index], transform.position, Quaternion.identity);
             card.transform.SetParent(transform.parent, false);
             card.transform.position = this.transform.position;
+            // add waypoint
+            waypoints.Add(card.transform.GetChild(0));
+
             card.transform.GetChild(0).GetComponent<HexagonDragDrop>().MakeDragable(false);
         }
 
         // make fisrt card draggable
         currentCard = card.transform.GetChild(0).GetComponent<HexagonDragDrop>();
         currentCard.MakeDragable(true);
+
+        announce = true;
     }
 
     public void DestroyLeftovers() {
@@ -52,8 +62,9 @@ public class GenerateDeck : MonoBehaviour
             currentCard = transform.parent.GetChild(transform.parent.childCount - 1).GetChild(0).GetComponent<HexagonDragDrop>();
             currentCard.MakeDragable(true);
         }
-        // else if (currentCard.placed && transform.parent.childCount <= 1) {
-        //     GameObject.Find("GameMaster").GetComponent<GameMaster>().StartEnemyWave();
-        // }
+        else if (currentCard.placed && transform.parent.childCount <= 1 && announce) {
+            GameObject.Find("GameMaster").GetComponent<GameMaster>().StartEnemyWave();
+            announce = false;
+        }
     }
 }

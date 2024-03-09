@@ -6,7 +6,7 @@ using UnityEngine.SocialPlatforms;
 
 public class Attack : MonoBehaviour
 {
-    [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private GameObject projectilePrefab = null;
     private GameObject target = null;
     private GameObject projectile;
     private float range = 150;

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7704926518888013225}
   - component: {fileID: 7704926518888013226}
+  - component: {fileID: 468337472}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -48,6 +49,25 @@ MonoBehaviour:
   startPointPrefab: {fileID: 6008657178515458793, guid: d07419928fe622648af4aa87f5815ffe,
     type: 3}
   score: 0
-  roundTime: 40
+  roundTime: 30
   roadCardsNumber: 3
   cardsNumber: 5
+  placeholderReplacer: {fileID: 21300000, guid: 2263f485ad3775349a8685a4eaee457e,
+    type: 3}
+--- !u!114 &468337472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7704926518888013227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0d4cab1a69050e488757a28ee486d17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies:
+  - {fileID: 1128452020934370993, guid: 3dab08b0210eefc4bb8544b6800f3edd, type: 3}
+  spawnPoint: {fileID: 0}
+  spawnTime: 5
+  totalWaves: 5

@@ -27,12 +27,10 @@ public class CheckOverlay : MonoBehaviour
 
         m_Raycaster.Raycast(m_PointerEventData, results);
 
-        Debug.Log("nr suprapuneri: " + results.Count);
-        
         // destroy extra components
         for (int i = 1; i < results.Count; i++) {
             Destroy(results[i].gameObject);
-            Debug.Log("destroyed somethn");
+            Debug.Log("Overlay check : destroyed somethn");
         }
     }
 }

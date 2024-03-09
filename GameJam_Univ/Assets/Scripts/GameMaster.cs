@@ -82,6 +82,8 @@ public class GameMaster : MonoBehaviour
     }
 
     private void ClearScene() {
+        Camera.main.GetComponent<MoveCamera>().ResetCamera();
+        
         waveSpawner.DestroyLeftovers();
         
         if (placeholders == null) {

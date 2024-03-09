@@ -7,11 +7,12 @@ using UnityEngine.SocialPlatforms;
 public class Attack : MonoBehaviour
 {
     [SerializeField] private GameObject projectilePrefab = null;
+    [SerializeField] private float fireTime = 0.6f, destroyTime = 10f;
+    [SerializeField] private float range = 150;
+    [SerializeField] private float power = 1;
     private GameObject target = null;
     private GameObject projectile;
-    private float range = 150;
     private float time = 0;
-    private float fireTime = 0.6f, destroyTime = 10f;
     private bool fireStarted = false;
 
     // Update is called once per frame
@@ -52,6 +53,7 @@ public class Attack : MonoBehaviour
             projectile.GetComponent<Projectile>().SetTarget(target);
             projectile.GetComponent<Projectile>().SetRange(range);
             projectile.GetComponent<Projectile>().SetInitPos(transform.position);
+            projectile.GetComponent<Projectile>().SetPower(power);
             fireStarted = true;
         }
     }

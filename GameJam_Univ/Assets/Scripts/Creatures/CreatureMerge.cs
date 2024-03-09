@@ -20,7 +20,8 @@ public class CreatureMerge : MonoBehaviour
     public void OnTriggerStay2D (Collider2D other) {
         if (other.CompareTag("Creature")) {
             // start merging if both are creatures and on same canvas
-            if (transform.parent.parent.gameObject == other.transform.parent.parent.gameObject) {
+            if (transform.parent.parent.gameObject == other.transform.parent.parent.gameObject
+                && transform.parent.parent.gameObject.name == "Canvas Creatures") {
                 Debug.Log("in range to merge");
                 merge_cod = other.GetComponent<CreatureMerge>().GetColorCode();
                 merge_cod = manager.GetCombinationCode(color_cod, merge_cod);

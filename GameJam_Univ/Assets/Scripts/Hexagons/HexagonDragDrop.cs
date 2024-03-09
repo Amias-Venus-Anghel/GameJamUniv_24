@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEditor.UI;
 using UnityEngine.UI;
 using System;
 
@@ -10,6 +9,7 @@ public class HexagonDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 {
     // referances
     [SerializeField] private bool starterPoint = false;
+    [SerializeField] private bool endPoint = false;
     [SerializeField] private GameObject[] holders = null;
     private CardDeck cardDeck;
     private Image image;
@@ -23,10 +23,13 @@ public class HexagonDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     [SerializeField] private bool isRoad = false;
     [SerializeField] private int[] roadEndPoints = null; // index of road end points
     
-    void Start() {
+    void Awake() {
         image = GetComponent<Image>();
         cardDeck = transform.parent.GetComponent<CardDeck>();
-        creatures = transform.parent.GetChild(transform.parent.childCount - 1);
+        if (!endPoint) {
+            // end point doesnt have creatures
+            creatures = transform.parent.GetChild(transform.parent.childCount - 1);
+        }
 
         // initiate placeholders
         for (int i = 0; i < 6; i++) {
@@ -55,16 +58,18 @@ public class HexagonDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     public void OnBeginDrag(PointerEventData eventData)
     {
         image.raycastTarget = false;
-        canRotate = true;
+        canRotate = true && !placed;
         // move to world canvas
         Transform canvasWorld = GameObject.Find("Canvas World").transform;
         transform.SetParent(canvasWorld, false);
         cardDeck.transform.SetParent(canvasWorld, false);
         cardDeck.transform.SetAsFirstSibling();
-        creatures.transform.SetParent(canvasWorld);
         transform.SetAsLastSibling();
-        creatures.SetAsLastSibling();
-        cardDeck.SetCanRotate(true);
+        if (!endPoint) {
+            creatures.transform.SetParent(canvasWorld);
+            creatures.SetAsLastSibling();
+        }
+        cardDeck.SetCanRotate(canRotate);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -77,17 +82,21 @@ public class HexagonDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         Vector3 pos = GameObject.Find("Main Camera").GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition);
         pos.z = 0;
         transform.position = pos;
-        creatures.position = pos;
+        if (!endPoint) {
+            creatures.position = pos;
+        }
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         canRotate = false;
-        cardDeck.SetCanRotate(false);
-        creatures.position = transform.position;
-        // if placed, move creatures to their canvas
-        if (placed) {
-            creatures.SetParent(GameObject.Find("Canvas Creatures").transform);
+        cardDeck.SetCanRotate(canRotate);
+        if (!endPoint) {
+            creatures.position = transform.position;
+            // if placed, move creatures to their canvas
+            if (placed) {
+                creatures.SetParent(GameObject.Find("Canvas Creatures").transform);
+            }
         }
 
         image.raycastTarget = true;
@@ -114,12 +123,21 @@ public class HexagonDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         }
 
         placed = true;
+        
+        if (endPoint) {
+            // destroy all holders if it s endpoint
+            for (int i = 0; i < 6; i++) {
+                Destroy(holders[i]);
+            }    
+            return;
+        }
 
         // destroy neigh
         index = (index + 6 - (nrRotiri % 6))%6;
         Destroy(holders[index]);
         Destroy(holders[(index + 1)%6]);
         Destroy(holders[Math.Abs((index +5)%6)]);
+
     }
 
     public bool PointIsRoadEnd(int index) {
@@ -136,12 +154,18 @@ public class HexagonDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         if ((Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.R)) && canRotate) {
             nrRotiri++;
             transform.Rotate(0, 0, -60);
-            creatures.Rotate(0, 0, -60);
-            // rotate creature sprites;
-            for (int i = 0; i < creatures.childCount; i++) {
-                creatures.GetChild(i).GetChild(0).Rotate(0, 0, 60);
+            if (!endPoint) {
+                creatures.Rotate(0, 0, -60);
+                // rotate creature sprites;
+                for (int i = 0; i < creatures.childCount; i++) {
+                    creatures.GetChild(i).GetChild(0).Rotate(0, 0, 60);
+                }
             }
 
         }
+    }
+
+    public void MakeDragable(bool draggable) {
+        image.raycastTarget = draggable;
     }
 }

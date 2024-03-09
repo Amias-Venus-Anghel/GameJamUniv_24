@@ -138,7 +138,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4d7e3f52c3ffed34c8f0091806e0c24f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a78d063c325471a4cbebb77a86b9b683, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -587,6 +587,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   starterPoint: 1
+  endPoint: 0
   holders:
   - {fileID: 6008657177292231771}
   - {fileID: 6008657178199237679}
@@ -594,5 +595,6 @@ MonoBehaviour:
   - {fileID: 6008657177876339648}
   - {fileID: 6008657178244447124}
   - {fileID: 6008657177718869574}
+  placed: 0
   isRoad: 1
   roadEndPoints: 02000000

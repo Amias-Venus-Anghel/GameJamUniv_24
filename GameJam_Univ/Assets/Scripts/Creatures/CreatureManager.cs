@@ -49,11 +49,21 @@ public class CreatureManager : MonoBehaviour
             transform.GetChild(i).GetComponent<CreatureMerge>().SetColorCode(color, colorsDict[color]);
         }
 
-        // random select where creatures are on hexagon
-        int keep = UnityEngine.Random.RandomRange(4, 5);
-        for (int i = 0; i < keep; i++) {
-            int index = UnityEngine.Random.RandomRange(0, transform.childCount);
-            Destroy(transform.GetChild(index).gameObject);
+        // random select number of creatures on hexagon
+        int keep = UnityEngine.Random.RandomRange(1, 4);
+
+        HashSet<int> keep_index = new HashSet<int>();
+
+        while (keep_index.Count < keep) {
+            int index = UnityEngine.Random.RandomRange(0, 6);
+            keep_index.Add(index);
+        }
+
+        for (int i = 0; i < 6; i++) {
+            if (keep_index.Contains(i)) {
+                continue;
+            }
+            Destroy(transform.GetChild(i).gameObject);
         }
     }
 

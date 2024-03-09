@@ -41,6 +41,7 @@ public class PlaceHolders : MonoBehaviour, IDropHandler
         // Debug.Log("placed on pos " + index);
         dropped.DestroyOnPos((index + 3)%6);
         dropped.transform.position = this.transform.position;
+        Camera.main.GetComponent<MoveCamera>().IncreaseMaxSize(dropped.transform.position);
         Destroy(this.gameObject);
     }
 

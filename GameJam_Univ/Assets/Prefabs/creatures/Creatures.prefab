@@ -85,6 +85,7 @@ GameObject:
   - component: {fileID: 8818500771574988038}
   - component: {fileID: 1659079326217797394}
   - component: {fileID: 4889305114791800103}
+  - component: {fileID: 1912712023553386660}
   m_Layer: 5
   m_Name: Sprite
   m_TagString: Untagged
@@ -148,6 +149,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &1912712023553386660
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003325902052079312}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ab9c6f60d5b11ad40b578a8537ba699b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2422779360017545322
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,6 +328,7 @@ GameObject:
   - component: {fileID: 7970253244238110212}
   - component: {fileID: 1998386919399676312}
   - component: {fileID: 4047912547084635294}
+  - component: {fileID: 8196736036060873726}
   m_Layer: 5
   m_Name: Creature_R
   m_TagString: Creature
@@ -419,6 +440,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &8196736036060873726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3788976900477797552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 640d55c3142e0844f959a33729e97dd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4593383811363849766
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,6 +614,7 @@ GameObject:
   - component: {fileID: 2870109235382686845}
   - component: {fileID: 4525706440189231339}
   - component: {fileID: 4803587557009844921}
+  - component: {fileID: 1639753047527963992}
   m_Layer: 5
   m_Name: Creature_DR
   m_TagString: Creature
@@ -692,6 +726,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1639753047527963992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5447912431593942647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 640d55c3142e0844f959a33729e97dd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5533213802386789385
 GameObject:
   m_ObjectHideFlags: 0
@@ -706,6 +752,7 @@ GameObject:
   - component: {fileID: 467017176953551899}
   - component: {fileID: 2873249361993557784}
   - component: {fileID: 5247651994903946135}
+  - component: {fileID: 8286837996538321558}
   m_Layer: 5
   m_Name: Creature_DL
   m_TagString: Creature
@@ -817,6 +864,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &8286837996538321558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5533213802386789385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 640d55c3142e0844f959a33729e97dd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5557127396937810019
 GameObject:
   m_ObjectHideFlags: 0
@@ -905,6 +964,7 @@ GameObject:
   - component: {fileID: 1397184679252094258}
   - component: {fileID: 1810510952975899593}
   - component: {fileID: 3820378177165314702}
+  - component: {fileID: 6546778899406916807}
   m_Layer: 5
   m_Name: Creature_L
   m_TagString: Creature
@@ -1016,6 +1076,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &6546778899406916807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5846445678942893994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 640d55c3142e0844f959a33729e97dd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6695714498074291211
 GameObject:
   m_ObjectHideFlags: 0
@@ -1104,6 +1176,7 @@ GameObject:
   - component: {fileID: 9210049000003841483}
   - component: {fileID: 3693608293264268485}
   - component: {fileID: 8028584772559865183}
+  - component: {fileID: 706803802410627620}
   m_Layer: 5
   m_Name: Creature_UL
   m_TagString: Creature
@@ -1215,6 +1288,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &706803802410627620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7341281415852628595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 640d55c3142e0844f959a33729e97dd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9063685667035621234
 GameObject:
   m_ObjectHideFlags: 0
@@ -1229,6 +1314,7 @@ GameObject:
   - component: {fileID: 9056536089045694973}
   - component: {fileID: 4455943864196724160}
   - component: {fileID: 2297647285266646527}
+  - component: {fileID: 9014266945019671542}
   m_Layer: 5
   m_Name: Creature_UR
   m_TagString: Creature
@@ -1340,3 +1426,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &9014266945019671542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9063685667035621234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 640d55c3142e0844f959a33729e97dd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

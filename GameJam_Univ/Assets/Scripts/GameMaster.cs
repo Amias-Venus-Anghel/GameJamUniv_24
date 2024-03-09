@@ -41,7 +41,7 @@ public class GameMaster : MonoBehaviour
         worldCanvas = GameObject.Find("Canvas World").transform;
         creatureCanvas = GameObject.Find("Canvas Creatures").transform;
 
-        waveSpawner = this.GetComponent<WaveSpawner>();
+        waveSpawner = GetComponent<WaveSpawner>();
 
         toPositions = new List<CreaturePositionForAttack>();
         NewRound();
@@ -58,7 +58,10 @@ public class GameMaster : MonoBehaviour
 
     // called to start new round
     public void NewRound() {
-         audioManager.PlaySFX(audioManager.startingRound);
+        // reset time
+        endRoundTime = Time.time + roundTime;
+
+        audioManager.PlaySFX(audioManager.startingRound);
         // destroy left over cards
         generator.DestroyLeftovers();
 
@@ -68,6 +71,7 @@ public class GameMaster : MonoBehaviour
             if (enemyStage) {
                 // this is a new round
                 enemyStage = false;
+                roadIsBuild = false;
                 AdjustDifficulty();
                 ClearScene();
             } else {
@@ -76,12 +80,12 @@ public class GameMaster : MonoBehaviour
             }
         }
         else {
+            // this is a reset if road wasnt finished
             roadIsBuild = false;
+            enemyStage = false;
             ClearScene();
         }
         
-        // reset time
-        endRoundTime = Time.time + roundTime;
     }
 
     private void ClearScene() {
@@ -121,6 +125,7 @@ public class GameMaster : MonoBehaviour
     }
 
     private void AdjustDifficulty() {
+        Debug.Log("adjusting difficulty");
         // TO DO: ajust nr of card per level
         roadCardsNumber += 1;
         cardsNumber += 1;   
@@ -173,7 +178,6 @@ public class GameMaster : MonoBehaviour
         // add bonus from time left
         // TO DO: check if enemies died by endpoint or killed 
         AddScore((int)(endRoundTime - Time.time));
-
         endRoundTime = 0;
     }
 

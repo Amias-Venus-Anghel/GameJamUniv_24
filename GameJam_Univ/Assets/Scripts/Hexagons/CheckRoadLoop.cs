@@ -9,6 +9,7 @@ public class CheckRoadLoop : MonoBehaviour
     private HexagonDragDrop endPoint = null;
     private GameMaster gameMaster = null;
 
+
     void Start() {
         roadPlacers = new List<GameObject>();
         endPoint = GameObject.FindGameObjectWithTag("Endpoint").GetComponent<HexagonDragDrop>();
@@ -18,6 +19,14 @@ public class CheckRoadLoop : MonoBehaviour
     void Update() {
         roadPlacers = GameObject.FindGameObjectsWithTag("RoadPlace").ToList<GameObject>();
         // if can't place anymore => a loop has occured
+        if (roadPlacers.Count <= 0 && !endPoint.placed) {
+            StartCoroutine(Recheck(roadPlacers));
+        }
+    }
+
+    private IEnumerator Recheck(List<GameObject> roadPlacers) {
+        yield return new WaitForEndOfFrame();
+        
         if (roadPlacers.Count <= 0 && !endPoint.placed) {
             Debug.Log("loop");
             gameMaster.NewRound();

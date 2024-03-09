@@ -1383,6 +1383,21 @@ PrefabInstance:
       propertyPath: time_slider
       value: 
       objectReference: {fileID: 98057698}
+    - target: {fileID: 7704926518888013226, guid: 80e46c9d8744aa24482f9965b132ea16,
+        type: 3}
+      propertyPath: roundTime
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7704926518888013226, guid: 80e46c9d8744aa24482f9965b132ea16,
+        type: 3}
+      propertyPath: enemiesSpawnSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7704926518888013226, guid: 80e46c9d8744aa24482f9965b132ea16,
+        type: 3}
+      propertyPath: enemiesWave
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 7704926518888013227, guid: 80e46c9d8744aa24482f9965b132ea16,
         type: 3}
       propertyPath: m_Name

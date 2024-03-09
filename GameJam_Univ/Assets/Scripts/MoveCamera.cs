@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static UnityEngine.GraphicsBuffer;
 
 public class MoveCamera : MonoBehaviour
 {
@@ -19,7 +20,9 @@ public class MoveCamera : MonoBehaviour
     Vector3 initPos = new Vector3(51, 390, -10);
 
     private float timer = 0.0f;
-    private float waitTime = 0.2f;
+    private float waitTime = 0.95f;
+
+    Vector3 cardDirection = new Vector3(0,0,0);
 
     void Start() {
         cam = GetComponent<Camera>();
@@ -36,13 +39,20 @@ public class MoveCamera : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Mouse2))
         {
+            var newPosition = new Vector3();
+            newPosition.x = Input.GetAxis("Mouse X") * speed * 4 * Time.deltaTime;
+            newPosition.y = Input.GetAxis("Mouse Y") * speed * 4 * Time.deltaTime;
+            transform.Translate(-newPosition * 3);
+        }
+
+        if ((cardDirection.x != 0 || cardDirection.y != 0))
+        {
             timer += Time.deltaTime;
-            if (timer >= waitTime)
+            transform.position = transform.position + cardDirection * speed / 2 * Time.deltaTime;
+            if ((cardDirection.y  != 0 && timer > waitTime/2) || (cardDirection.x != 0 && timer > waitTime))
             {
-                var newPosition = new Vector3();
-                newPosition.x = Input.GetAxis("Mouse X") * speed * 4 * Time.deltaTime;
-                newPosition.y = Input.GetAxis("Mouse Y") * speed * 4 * Time.deltaTime;
-                transform.Translate(-newPosition * 3);
+                cardDirection = new Vector3(0, 0, 0);
+                timer = 0;
             }
         }
 
@@ -102,19 +112,34 @@ public class MoveCamera : MonoBehaviour
             cam.orthographicSize = minSize;
     }
 
+    Vector3 WorldToCamera(Vector3 v)
+    {
+        return new Vector3(v.x * 51 / (-683), v.y * 390 / 398, -10);
+    }
+
     public void IncreaseMaxSize(Vector3 cardPos)
     {
+        cardDirection = new Vector3(0, 0, 0);
+        if (cardPos.x < transform.position.x)
+            cardDirection.x = -1;
         if (cardPos.x < xLimitMin)
             xLimitMin -= 50;
 
+        if (cardPos.x > transform.position.x)
+            cardDirection.x = 1;
         if (cardPos.x > xLimitMax)
             xLimitMax += 50;
 
+        if (cardPos.y > transform.position.y)
+            cardDirection.y= 1;
         if (cardPos.y > yLimitMax)
             yLimitMax += 50;
 
+        if (cardPos.y < transform.position.y)
+            cardDirection.y = -1;
         if (cardPos.y < yLimitMin)
             yLimitMin -= 50;
+        cardDirection.z = 0;
     }
 
     public void ResetCamera()

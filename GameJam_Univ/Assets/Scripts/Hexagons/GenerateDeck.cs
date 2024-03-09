@@ -68,6 +68,7 @@ public class GenerateDeck : MonoBehaviour
         // make next card draggable
         if (currentCard.placed && transform.parent.childCount > 1) {
             if (placeEndRoad) {
+                placeEndRoad = false;
                 // announce gamemaster that road has been build
                 gameMaster.RoadHasBeenBuild();
             }

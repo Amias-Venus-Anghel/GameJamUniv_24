@@ -22,9 +22,10 @@ public class GameMaster : MonoBehaviour
     [SerializeField] int cardsNumber = 5;
 
     private float endRoundTime = 0;
+    private bool enemyStage = false;
 
     private List<CreaturePositionForAttack> toPositions;
-    private List<Image> placeholders;
+    private List<Image> placeholders = null;
     [SerializeField] private Sprite placeholderReplacer = null;
 
     private WaveSpawner waveSpawner;
@@ -42,7 +43,7 @@ public class GameMaster : MonoBehaviour
     }
 
     void Update() {
-        if (Time.time >= endRoundTime) {
+        if (Time.time >= endRoundTime && enemyStage) {
             NewRound();
         }
         time_text.text = (endRoundTime - Time.time).ToString();
@@ -50,6 +51,13 @@ public class GameMaster : MonoBehaviour
 
     // called to start new round
     public void NewRound() {
+        waveSpawner.DestroyLeftovers();
+        enemyStage = false;
+        
+        if (placeholders == null) {
+            placeholders = new List<Image>();
+        }
+
         // destroy placed assets
         for (int i = 1; i < worldCanvas.childCount; i++) {
             Destroy(worldCanvas.GetChild(i).gameObject);
@@ -79,15 +87,18 @@ public class GameMaster : MonoBehaviour
         // add bonus score if time left for hexagon placement
         AddScore((int)(endRoundTime - Time.time));
 
+        endRoundTime = Time.time + roundTime;
+        enemyStage = true;
+
         StartCoroutine(CallToAction());
     }
 
     IEnumerator CallToAction() {
-        // foreach (Image i in placeholders) {
-        //     if (i != null) {
-        //         i.sprite = placeholderReplacer;
-        //     }
-        // }
+        foreach (Image i in placeholders) {
+            if (i != null) {
+                i.sprite = placeholderReplacer;
+            }
+        }
 
         yield return new WaitForSeconds(2);
 

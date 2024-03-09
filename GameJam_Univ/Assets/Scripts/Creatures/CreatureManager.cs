@@ -22,9 +22,9 @@ public class CreatureManager : MonoBehaviour
         public Sprite sprite;
     }
 
-    [SerializeField] private colorCombination[] combinations;
-    [SerializeField] private colorSprites[] sprites;
-    [SerializeField] private string[] baseCodes;
+    [SerializeField] private colorCombination[] combinations = null;
+    [SerializeField] private colorSprites[] sprites = null;
+    [SerializeField] private string[] baseCodes = null;
 
     void Start() {
         /* adding color combiantions to dictionary */
@@ -44,18 +44,18 @@ public class CreatureManager : MonoBehaviour
 
         // assign random color codes
         for (int i = 0; i < transform.childCount; i++) {
-            int index = UnityEngine.Random.RandomRange(0, 3);
+            int index = UnityEngine.Random.Range(0, 3);
             string color = baseCodes[index];
             transform.GetChild(i).GetComponent<CreatureMerge>().SetColorCode(color, colorsDict[color]);
         }
 
         // random select number of creatures on hexagon
-        int keep = UnityEngine.Random.RandomRange(1, 4);
+        int keep = UnityEngine.Random.Range(1, 4);
 
         HashSet<int> keep_index = new HashSet<int>();
 
         while (keep_index.Count < keep) {
-            int index = UnityEngine.Random.RandomRange(0, 6);
+            int index = UnityEngine.Random.Range(0, 6);
             keep_index.Add(index);
         }
 

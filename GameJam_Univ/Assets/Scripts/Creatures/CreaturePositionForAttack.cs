@@ -14,8 +14,8 @@ public class CreaturePositionForAttack : MonoBehaviour
     private float positionDistance = 10f;
     void Start() {
         GameObject.Find("GameMaster").GetComponent<GameMaster>().ListenForWave(this);
-        positionDistance = Random.RandomRange(positionDistance / 2, positionDistance);
-        Debug.Log(positionDistance);
+        positionDistance = Random.Range(positionDistance / 2, positionDistance);
+        // Debug.Log(positionDistance);
         target = transform.position;
     }
 

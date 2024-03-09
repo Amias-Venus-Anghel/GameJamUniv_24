@@ -15,14 +15,27 @@ public class WaveSpawner : MonoBehaviour
     private HexagonDragDrop hexagonEndScript;
     private bool timeToSpawn = false;
 
+    private List<Transform> spawned_enemies = null;
+
     public void spawnEnemyWaves() {
         timeToSpawn = true;
+        spawned_enemies = new List<Transform>();
     }        
     
+    // clean enemies when new round
+    public void DestroyLeftovers() {
+        if (spawned_enemies != null) {
+            foreach(Transform enemy in spawned_enemies) {
+                if (enemy != null) {
+                    Destroy(enemy.gameObject);
+                }
+            }
+        }
+    }
+
     void Update() {
         if(timeToSpawn && waveNo <= totalWaves) {
             if(countdown <= 0f) {
-                Debug.Log("yup45");
                 spawnWave();
                 countdown = spawnTime;
             }
@@ -31,7 +44,6 @@ public class WaveSpawner : MonoBehaviour
     }
 
     void spawnWave() {
-        Debug.Log("enemy wave: " + waveNo);
         //for(int i = 0; i < waveNo; i++) {
             spawnEnemy(); // nr de enemies intr-un wave: 1
         //}
@@ -39,8 +51,8 @@ public class WaveSpawner : MonoBehaviour
     }
 
     void spawnEnemy(){
-        int index = Random.RandomRange(0, enemies.Length);
+        int index = Random.Range(0, enemies.Length);
         Transform enemy = Instantiate(enemies[index], spawnPoint.position, spawnPoint.rotation);
-
+        spawned_enemies.Add(enemy);
     }
 }

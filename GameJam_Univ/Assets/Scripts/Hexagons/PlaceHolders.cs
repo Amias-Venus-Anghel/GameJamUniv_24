@@ -12,7 +12,7 @@ public class PlaceHolders : MonoBehaviour, IDropHandler
     private bool isRoadEndPoint;
 
     void Start() {
-        // GameObject.Find("GameMaster").GetComponent<GameMaster>().ListenForWavePlaceholders(GetComponent<Image>());
+        GameObject.Find("GameMaster").GetComponent<GameMaster>().ListenForWavePlaceholders(GetComponent<Image>());
     }
 
     public void OnDrop(PointerEventData eventData)

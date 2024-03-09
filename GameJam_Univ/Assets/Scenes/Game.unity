@@ -1396,7 +1396,7 @@ PrefabInstance:
     - target: {fileID: 7704926518888013226, guid: 80e46c9d8744aa24482f9965b132ea16,
         type: 3}
       propertyPath: enemiesWave
-      value: 20
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7704926518888013227, guid: 80e46c9d8744aa24482f9965b132ea16,
         type: 3}

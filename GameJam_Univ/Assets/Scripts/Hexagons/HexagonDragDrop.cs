@@ -157,12 +157,12 @@ public class HexagonDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         if ((Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.R)) && canRotate) {
             nrRotiri++;
             transform.Rotate(0, 0, -60);
-             audioManager.PlaySFX(audioManager.rotated);
+            audioManager.PlaySFX(audioManager.rotated);
             if (!endPoint) {
                 creatures.Rotate(0, 0, -60);
                 // rotate creature sprites;
                 for (int i = 0; i < creatures.childCount; i++) {
-                    creatures.GetChild(i).GetChild(0).Rotate(0, 0, 60);
+                    creatures.GetChild(i).Rotate(0, 0, 60);
                 }
             }
 

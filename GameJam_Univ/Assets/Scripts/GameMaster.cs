@@ -10,7 +10,8 @@ public class GameMaster : MonoBehaviour
     [SerializeField] TMP_Text score_text = null;
     [SerializeField] Slider time_slider = null;
     [SerializeField] GameObject startPointPrefab = null;
-     AudioManager audioManager;
+    
+    AudioManager audioManager;
 
     private Vector3 startPosition;
     private GenerateDeck generator; 

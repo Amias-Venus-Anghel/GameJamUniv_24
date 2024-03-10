@@ -25,6 +25,9 @@ public class GameMaster : MonoBehaviour
     [SerializeField] int enemiesWave = 5;
     [SerializeField] int enemiesSpawnSpeed = 5;
 
+    // count played rounds
+    private int dayOfWeek = 0;
+
     private float endRoundTime = 0;
     private bool enemyStage = false;
     private bool roadIsBuild = false;
@@ -71,6 +74,11 @@ public class GameMaster : MonoBehaviour
             // if enemy stage happened
             if (enemyStage) {
                 // this is a new round
+                dayOfWeek++;
+                if (dayOfWeek == 8) {
+                    // week ended, go to endscreen
+                    FindObjectOfType<DataBringer>().EndGame(score);
+                }
                 enemyStage = false;
                 roadIsBuild = false;
                 AdjustDifficulty();

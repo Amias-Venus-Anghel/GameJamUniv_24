@@ -6,6 +6,7 @@ public class EnemyMovement : MonoBehaviour
 {
     public float speed = 10f;
     public float range = 0.5f;
+    public int happinessDamage = 300;
     private Transform target;
     private Transform hexagonEnd = null;
 
@@ -30,7 +31,7 @@ public class EnemyMovement : MonoBehaviour
             if (target == hexagonEnd) {
                 spawner.EnemyDied();
                 // add score penality
-                GameObject.Find("GameMaster").GetComponent<GameMaster>().AddScore(-10);
+                GameObject.Find("GameMaster").GetComponent<GameMaster>().AddScore(-happinessDamage);
                 hexagonEnd.gameObject.GetComponent<EndPointDamage>().HurtHeartAnimate();
                 Destroy(gameObject); // de pus endpoint-ul in dreptul cararii
             }

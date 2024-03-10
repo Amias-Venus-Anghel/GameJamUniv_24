@@ -10,6 +10,7 @@ public class GameMaster : MonoBehaviour
     [SerializeField] TMP_Text score_text = null;
     [SerializeField] Slider time_slider = null;
     [SerializeField] GameObject startPointPrefab = null;
+    [SerializeField] TMP_Text day_text = null;
     
     AudioManager audioManager;
 
@@ -48,6 +49,8 @@ public class GameMaster : MonoBehaviour
         waveSpawner = GetComponent<WaveSpawner>();
 
         toPositions = new List<CreaturePositionForAttack>();
+        roadIsBuild = true;
+        enemyStage = true;
         NewRound();
     }
 
@@ -75,10 +78,12 @@ public class GameMaster : MonoBehaviour
             if (enemyStage) {
                 // this is a new round
                 dayOfWeek++;
+                Debug.Log("Day " + dayOfWeek);
                 if (dayOfWeek == 8) {
                     // week ended, go to endscreen
                     FindObjectOfType<DataBringer>().EndGame(score);
                 }
+                day_text.text = "Day " + dayOfWeek;
                 enemyStage = false;
                 roadIsBuild = false;
                 AdjustDifficulty();

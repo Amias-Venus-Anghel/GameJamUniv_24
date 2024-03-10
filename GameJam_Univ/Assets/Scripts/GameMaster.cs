@@ -11,6 +11,7 @@ public class GameMaster : MonoBehaviour
     [SerializeField] Slider time_slider = null;
     [SerializeField] GameObject startPointPrefab = null;
     [SerializeField] TMP_Text day_text = null;
+    [SerializeField] TMP_Text time_text = null;
     
     AudioManager audioManager;
 
@@ -103,6 +104,7 @@ public class GameMaster : MonoBehaviour
     }
 
     private void ClearScene() {
+        time_text.text = "PLANNING PHASE";
         Camera.main.GetComponent<MoveCamera>().ResetCamera();
         
         waveSpawner.DestroyLeftovers();
@@ -129,6 +131,7 @@ public class GameMaster : MonoBehaviour
     }
 
     public void StartEnemyWave() {
+        time_text.text = "DEFENDING PHASE";
         // add bonus score if time left for hexagon placement
         AddScore((int)(endRoundTime - Time.time));
 

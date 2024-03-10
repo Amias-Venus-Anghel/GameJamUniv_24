@@ -9,6 +9,8 @@ public class ShowStorySlides : MonoBehaviour
     [SerializeField] private Image[] images = null;
     [SerializeField] private GameObject buttonNext = null;
     [SerializeField] private GameObject buttonPrev = null;
+    [SerializeField] private Transform prevPozChange;
+    private Vector3 prevPoz1;
 
     private int indexActual;
 
@@ -18,6 +20,7 @@ public class ShowStorySlides : MonoBehaviour
         for (int i = 1; i < images.Length; i++) {
             images[i].gameObject.SetActive(false);
         }
+        prevPoz1 = buttonPrev.transform.position;
         buttonPrev.SetActive(false);
     }
 
@@ -35,6 +38,13 @@ public class ShowStorySlides : MonoBehaviour
         if (indexActual > 0) {
             buttonPrev.SetActive(true);
         }
+
+        if (indexActual < 2) {
+            buttonPrev.transform.position = prevPoz1;
+        }
+        else {
+            buttonPrev.transform.position = prevPozChange.position;
+        }
     }
 
     public void PrevSlide() {
@@ -50,6 +60,13 @@ public class ShowStorySlides : MonoBehaviour
 
         if (indexActual < images.Length - 1) {
             buttonNext.SetActive(true);
+        }
+
+        if (indexActual < 2) {
+            buttonPrev.transform.position = prevPoz1;
+        }
+        else {
+            buttonPrev.transform.position = prevPozChange.position;
         }
     }
 

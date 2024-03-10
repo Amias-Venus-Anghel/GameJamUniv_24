@@ -39,8 +39,21 @@ public class GenerateDeck : MonoBehaviour
 
         waypoints = new List<Transform>();
         // roads
+        int nrCorners = 0;
         for (int i = 0; i < roads; i++) {
-            int index = Random.Range(0, roadPrefabCards.Length);
+            
+            int index;
+            if (nrCorners == 3) {
+                index = Random.Range(1, roadPrefabCards.Length);
+            }
+            else {
+                index = Random.Range(0, roadPrefabCards.Length);
+            }
+
+            if (index == 0) {
+                nrCorners++;
+            }
+
             card = Instantiate(roadPrefabCards[index], transform.position, Quaternion.identity);
             card.transform.SetParent(transform.parent, false);
             card.transform.position = this.transform.position;
@@ -49,6 +62,8 @@ public class GenerateDeck : MonoBehaviour
 
             card.transform.GetChild(0).GetComponent<HexagonDragDrop>().MakeDragable(false);
         }
+
+        Debug.Log("nr of corners " + nrCorners);
 
         // make fisrt card draggable
         currentCard = card.transform.GetChild(0).GetComponent<HexagonDragDrop>();

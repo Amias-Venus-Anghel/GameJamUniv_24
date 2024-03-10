@@ -25,6 +25,8 @@ public class PlaceHolders : MonoBehaviour, IDropHandler
             return;
         }
 
+        GameObject.Find("Canvas World").GetComponent<CheckOverlay>().Check();
+
         // road compatibility checks
         if (dropped.IsRoad()) {
             // if road but not road point
@@ -44,13 +46,11 @@ public class PlaceHolders : MonoBehaviour, IDropHandler
             return;
         }
 
-         
-        GameObject.Find("Canvas World").GetComponent<CheckOverlay>().Check();
-
-
         // Debug.Log("placed on pos " + index);
         dropped.DestroyOnPos((index + 3)%6);
         dropped.transform.position = this.transform.position;
+        // set tags for loop check
+        dropped.SetTagsOnRoadEnds();
         audioManager.PlaySFX(audioManager.placed);
         Camera.main.GetComponent<MoveCamera>().IncreaseMaxSize(dropped.transform.position);
         Destroy(this.gameObject);

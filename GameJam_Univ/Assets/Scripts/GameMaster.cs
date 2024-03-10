@@ -40,12 +40,15 @@ public class GameMaster : MonoBehaviour
 
     private WaveSpawner waveSpawner;
 
+    private CheckRoadLoop checkLoops;
+
     void Awake() {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         startPosition = GameObject.Find(" StartPoint").transform.position;
         generator = GameObject.Find("CardsSpawner").GetComponent<GenerateDeck>();
         worldCanvas = GameObject.Find("Canvas World").transform;
         creatureCanvas = GameObject.Find("Canvas Creatures").transform;
+        checkLoops = FindObjectOfType<CheckRoadLoop>();
 
         waveSpawner = GetComponent<WaveSpawner>();
 
@@ -68,7 +71,8 @@ public class GameMaster : MonoBehaviour
     public void NewRound() {
         // reset time
         endRoundTime = Time.time + roundTime;
-
+        // turn off check for loops
+        checkLoops.UpdateCheckForLoop(false);
         audioManager.PlaySFX(audioManager.startingRound);
         // destroy left over cards
         generator.DestroyLeftovers();
@@ -78,24 +82,26 @@ public class GameMaster : MonoBehaviour
             // if enemy stage happened
             if (enemyStage) {
                 // this is a new round
+                Debug.Log("new round");
                 dayOfWeek++;
                 Debug.Log("Day " + dayOfWeek);
                 if (dayOfWeek == 8) {
                     // week ended, go to endscreen
                     FindObjectOfType<DataBringer>().EndGame(score);
                 }
-                day_text.text = "Day " + dayOfWeek;
                 enemyStage = false;
                 roadIsBuild = false;
                 AdjustDifficulty();
                 ClearScene();
             } else {
                 // if wave didnt start but road is build and time up, start enemy wave
+                Debug.Log("start wave");
                 StartEnemyWave();
             }
         }
         else {
             // this is a reset if road wasnt finished
+            Debug.Log("road not finished, reset");
             roadIsBuild = false;
             enemyStage = false;
             ClearScene();
@@ -128,6 +134,9 @@ public class GameMaster : MonoBehaviour
 
         //  generate new pack
         generator.GenerateNewDeck(roadCardsNumber, cardsNumber);
+
+        // turn on check for loops after deck generation
+        checkLoops.UpdateCheckForLoop(true);
     }
 
     public void StartEnemyWave() {
@@ -142,7 +151,6 @@ public class GameMaster : MonoBehaviour
     }
 
     private void AdjustDifficulty() {
-        Debug.Log("adjusting difficulty");
         // TO DO: ajust nr of card per level
         roadCardsNumber += 1;
         cardsNumber += 1;   

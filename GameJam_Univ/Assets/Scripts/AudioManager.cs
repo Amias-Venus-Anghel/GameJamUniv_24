@@ -51,7 +51,7 @@ public class AudioManager : MonoBehaviour
 
           backgroundValue = backgroundFloat;
           soundEffectsValue = soundEffectsFloat;
-
+          
           if (backgroundSlider != null) {
                backgroundSlider.value = backgroundFloat;
                soundEffectsSlider.value = soundEffectsFloat;
@@ -64,21 +64,23 @@ public class AudioManager : MonoBehaviour
    }
 
    public void UpdateSound()
-   {
+     {
           musicSource.volume = backgroundSlider.value;
           SFXSource.volume = soundEffectsSlider.value;
 
           backgroundValue = backgroundSlider.value;
           soundEffectsValue = soundEffectsSlider.value;
-   }
+     }
 
-     public void SetSoundsValues( Slider backgroundSlider, Slider soundEffectsSlider )
+     public bool SetSoundsValues( Slider backgroundSlider, Slider soundEffectsSlider )
      {
           this.backgroundSlider = backgroundSlider;
           this.soundEffectsSlider = soundEffectsSlider;
 
           backgroundSlider.value = backgroundValue;
           soundEffectsSlider.value = soundEffectsValue;
+
+          return true;
      }
    
 }

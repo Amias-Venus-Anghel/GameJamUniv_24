@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7315834706643101307}
   - component: {fileID: 2682755059716038524}
   - component: {fileID: 8773026112237579112}
+  - component: {fileID: 5227898632378163720}
   m_Layer: 5
   m_Name: Sprite
   m_TagString: Untagged
@@ -94,6 +95,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5227898632378163720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414979096233246907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5898fe38850b0834290fc86d7045d085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2003325902052079312
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,6 +119,7 @@ GameObject:
   - component: {fileID: 1659079326217797394}
   - component: {fileID: 4889305114791800103}
   - component: {fileID: 9027505292687256853}
+  - component: {fileID: 5062533874807235650}
   m_Layer: 5
   m_Name: Sprite
   m_TagString: Untagged
@@ -188,6 +202,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5062533874807235650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003325902052079312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5898fe38850b0834290fc86d7045d085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2422779360017545322
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,6 +578,7 @@ GameObject:
   - component: {fileID: 5913638389280441749}
   - component: {fileID: 516272127331290762}
   - component: {fileID: 1912013081273527177}
+  - component: {fileID: 7638979816746791935}
   m_Layer: 5
   m_Name: Sprite
   m_TagString: Untagged
@@ -634,6 +661,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7638979816746791935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4593383811363849766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5898fe38850b0834290fc86d7045d085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4658862570280187033
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,6 +685,7 @@ GameObject:
   - component: {fileID: 4445312887898799064}
   - component: {fileID: 1304830450522891267}
   - component: {fileID: 1124164351952634357}
+  - component: {fileID: 7629454169340081862}
   m_Layer: 5
   m_Name: Sprite
   m_TagString: Untagged
@@ -728,6 +768,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7629454169340081862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4658862570280187033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5898fe38850b0834290fc86d7045d085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5447912431593942647
 GameObject:
   m_ObjectHideFlags: 0
@@ -1056,6 +1108,7 @@ GameObject:
   - component: {fileID: 3395856490257362796}
   - component: {fileID: 1289543988089053694}
   - component: {fileID: 2266198336597661395}
+  - component: {fileID: 778912791839756855}
   m_Layer: 5
   m_Name: Sprite
   m_TagString: Untagged
@@ -1138,6 +1191,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &778912791839756855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5557127396937810019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5898fe38850b0834290fc86d7045d085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5846445678942893994
 GameObject:
   m_ObjectHideFlags: 0
@@ -1308,6 +1373,7 @@ GameObject:
   - component: {fileID: 2217192741405285733}
   - component: {fileID: 8776178683288948532}
   - component: {fileID: 4427089612380717493}
+  - component: {fileID: 5677826100344143655}
   m_Layer: 5
   m_Name: Sprite
   m_TagString: Untagged
@@ -1390,6 +1456,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5677826100344143655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6695714498074291211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5898fe38850b0834290fc86d7045d085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7341281415852628595
 GameObject:
   m_ObjectHideFlags: 0
@@ -1713,6 +1791,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 930011156753800896}
     m_Modifications:
+    - target: {fileID: 47931556763974753, guid: 50064eb89d51fd64f85a25731721b319,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 47931556763974754, guid: 50064eb89d51fd64f85a25731721b319,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1838,6 +1921,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3087549968898817781}
     m_Modifications:
+    - target: {fileID: 47931556763974753, guid: 50064eb89d51fd64f85a25731721b319,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 47931556763974754, guid: 50064eb89d51fd64f85a25731721b319,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1963,6 +2051,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6861257122994836159}
     m_Modifications:
+    - target: {fileID: 47931556763974753, guid: 50064eb89d51fd64f85a25731721b319,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 47931556763974754, guid: 50064eb89d51fd64f85a25731721b319,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2088,6 +2181,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2771569446954857123}
     m_Modifications:
+    - target: {fileID: 47931556763974753, guid: 50064eb89d51fd64f85a25731721b319,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 47931556763974754, guid: 50064eb89d51fd64f85a25731721b319,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2213,6 +2311,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7331045411847624554}
     m_Modifications:
+    - target: {fileID: 47931556763974753, guid: 50064eb89d51fd64f85a25731721b319,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 47931556763974754, guid: 50064eb89d51fd64f85a25731721b319,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2338,6 +2441,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6117473931387671939}
     m_Modifications:
+    - target: {fileID: 47931556763974753, guid: 50064eb89d51fd64f85a25731721b319,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 47931556763974754, guid: 50064eb89d51fd64f85a25731721b319,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -15,10 +15,12 @@ public class Attack : MonoBehaviour
     private float time = 0;
     private bool fireStarted = false;
     AudioManager audioManager;
+    Animator spriteAnimator;
 
     private void Awake()
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        spriteAnimator = transform.GetChild(0).GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -44,8 +46,9 @@ public class Attack : MonoBehaviour
         if (fireStarted == true)
         {
             destroyTime -= Time.deltaTime;
-            if (destroyTime <= 0)
-                Destroy(this.gameObject);
+            if (destroyTime <= 0){
+                spriteAnimator.SetBool("isDead", true);
+            }
         }
     }
 

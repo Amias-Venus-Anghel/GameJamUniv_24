@@ -1294,10 +1294,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 814512958, guid: e8672bb4c1d05ba449f5c715988db19a, type: 3}
-      propertyPath: m_Name
-      value: DayText
-      objectReference: {fileID: 0}
     - target: {fileID: 3624987803912463382, guid: e8672bb4c1d05ba449f5c715988db19a,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -1417,11 +1413,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4380436338965039622, guid: e8672bb4c1d05ba449f5c715988db19a,
-        type: 3}
-      propertyPath: m_Name
-      value: Happiness
       objectReference: {fileID: 0}
     - target: {fileID: 7970052622695820478, guid: e8672bb4c1d05ba449f5c715988db19a,
         type: 3}

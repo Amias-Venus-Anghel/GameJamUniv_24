@@ -333,77 +333,77 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 8d454a1bbdf7a604abacacb171f307ba, type: 3}
     power: 3
     fireRate: 0.6
-    lifeTime: 15
+    lifeTime: 20
   - colorCode: redL
     sprite: {fileID: 21300000, guid: 87b2e06ee0d0fa74596e2b2240a032cb, type: 3}
-    power: 4
+    power: 5
     fireRate: 0.6
-    lifeTime: 20
+    lifeTime: 40
   - colorCode: blue
     sprite: {fileID: 21300000, guid: 044cfefc1de8ce142ba87b8d87496748, type: 3}
-    power: 1
-    fireRate: 0.5
+    power: 0.5
+    fireRate: 0.4
     lifeTime: 10
   - colorCode: blueM
     sprite: {fileID: 21300000, guid: c0d52608e0862d14ba34079c6c70f26a, type: 3}
-    power: 2
-    fireRate: 0.5
-    lifeTime: 15
+    power: 1.5
+    fireRate: 0.3
+    lifeTime: 20
   - colorCode: blueL
     sprite: {fileID: 21300000, guid: e4cac9290f878494a94e15e7ee07c1ec, type: 3}
     power: 3
-    fireRate: 0.5
-    lifeTime: 20
+    fireRate: 0.2
+    lifeTime: 40
   - colorCode: yellow
     sprite: {fileID: 21300000, guid: e500d5809a9aa834cb903d4a944e48be, type: 3}
-    power: 1
-    fireRate: 0.6
-    lifeTime: 15
-  - colorCode: yellowM
-    sprite: {fileID: 21300000, guid: 7c77caf226d20ab409f2f2c1a81fbdfc, type: 3}
-    power: 2
+    power: 0.5
     fireRate: 0.6
     lifeTime: 20
+  - colorCode: yellowM
+    sprite: {fileID: 21300000, guid: 7c77caf226d20ab409f2f2c1a81fbdfc, type: 3}
+    power: 1.5
+    fireRate: 0.6
+    lifeTime: 30
   - colorCode: yellowL
     sprite: {fileID: 21300000, guid: 23f063a5174b5f54885baf94fbc0f56b, type: 3}
     power: 3
     fireRate: 0.6
-    lifeTime: 25
+    lifeTime: 50
   - colorCode: green
     sprite: {fileID: 21300000, guid: cf849af7f122dbe4b81bacf097b56112, type: 3}
-    power: 3.3
-    fireRate: 0.5
-    lifeTime: 20
+    power: 1.5
+    fireRate: 0.3
+    lifeTime: 30
   - colorCode: greenM
     sprite: {fileID: 21300000, guid: 0393c03b0d9c364438818f201ba57928, type: 3}
-    power: 5
-    fireRate: 0.5
-    lifeTime: 25
+    power: 3
+    fireRate: 0.2
+    lifeTime: 50
   - colorCode: orange
     sprite: {fileID: 21300000, guid: b9e15cf9f799e694481c24056c710596, type: 3}
-    power: 4.3
+    power: 3
     fireRate: 0.6
-    lifeTime: 20
+    lifeTime: 30
   - colorCode: orangeM
     sprite: {fileID: 21300000, guid: 889075bd72be7e842a5bc2f8424b1f8a, type: 3}
-    power: 6
+    power: 5
     fireRate: 0.6
-    lifeTime: 25
+    lifeTime: 50
   - colorCode: purple
     sprite: {fileID: 21300000, guid: 646551ff39a9b6e47bd5f2284b68ce80, type: 3}
-    power: 4.3
-    fireRate: 0.5
-    lifeTime: 15
+    power: 3
+    fireRate: 0.3
+    lifeTime: 20
   - colorCode: purpleM
     sprite: {fileID: 21300000, guid: 8ebaa64bc2c52eb4fa274d7d357caacc, type: 3}
-    power: 6
-    fireRate: 0.5
-    lifeTime: 20
+    power: 5
+    fireRate: 0.2
+    lifeTime: 40
   - colorCode: white
     sprite: {fileID: 21300000, guid: acc0f71fdd018a449ac61dce7705038f, type: 3}
     power: 10
-    fireRate: 0.4
-    lifeTime: 25
+    fireRate: 0.2
+    lifeTime: 50
   baseCodes:
   - red
   - blue

@@ -110,5 +110,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f5c78892c871dc4382fb235486ce2bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 60
-  score: 200
+  life: 65
+  score: 500

@@ -47,7 +47,6 @@ public class MoveCamera : MonoBehaviour
 
         if (goToInitPos == 1 && dist > 30)
         {
-            Debug.Log(initPos + " " + transform.position + " " + dist + " " + initPosDir);
             if (Mathf.Abs(lastDistance - dist) > 30)
             {
                 lastDistance = dist;

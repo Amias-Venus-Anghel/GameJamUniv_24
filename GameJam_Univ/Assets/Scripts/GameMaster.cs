@@ -89,6 +89,7 @@ public class GameMaster : MonoBehaviour
                     // week ended, go to endscreen
                     FindObjectOfType<DataBringer>().EndGame(score);
                 }
+                day_text.text = "Day " + dayOfWeek;
                 enemyStage = false;
                 roadIsBuild = false;
                 AdjustDifficulty();
@@ -147,7 +148,7 @@ public class GameMaster : MonoBehaviour
         endRoundTime = Time.time + roundTime;
         enemyStage = true;
 
-        Camera.main.GetComponent<MoveCamera>().MoveCameraEnemies();
+        // Camera.main.GetComponent<MoveCamera>().MoveCameraEnemies();
         
         StartCoroutine(CallToAction());
     }

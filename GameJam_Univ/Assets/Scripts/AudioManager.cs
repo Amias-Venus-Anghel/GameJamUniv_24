@@ -43,8 +43,8 @@ public class AudioManager : MonoBehaviour
 
         firstPlayInt = PlayerPrefs.GetInt(FirstPlay);
 
-        if(firstPlayInt == 0)
-        {
+     //    if(firstPlayInt == 0)
+     //    {
                backgroundFloat = 1f;
                soundEffectsFloat = 1f;
 
@@ -54,17 +54,17 @@ public class AudioManager : MonoBehaviour
                backgroundSlider.value = backgroundFloat;
                soundEffectsSlider.value = soundEffectsFloat;
 
-               PlayerPrefs.SetFloat(BackgroundPref, backgroundFloat);
-               PlayerPrefs.SetFloat(SoundEffectsPref, soundEffectsFloat);
-               PlayerPrefs.SetInt(FirstPlay, -1);
-        }
-        else
-        {
-               backgroundFloat = PlayerPrefs.GetFloat(BackgroundPref);
-               backgroundSlider.value = backgroundFloat;
-               soundEffectsFloat = PlayerPrefs.GetFloat(SoundEffectsPref);
-               soundEffectsSlider.value = soundEffectsFloat;
-        }
+               // PlayerPrefs.SetFloat(BackgroundPref, backgroundFloat);
+               // PlayerPrefs.SetFloat(SoundEffectsPref, soundEffectsFloat);
+               // PlayerPrefs.SetInt(FirstPlay, -1);
+     //    }
+     //    else
+     //    {
+     //           backgroundFloat = PlayerPrefs.GetFloat(BackgroundPref);
+     //           backgroundSlider.value = backgroundFloat;
+     //           soundEffectsFloat = PlayerPrefs.GetFloat(SoundEffectsPref);
+     //           soundEffectsSlider.value = soundEffectsFloat;
+     //    }
    }
 
    public void PlaySFX(AudioClip clip)
@@ -72,19 +72,19 @@ public class AudioManager : MonoBehaviour
           SFXSource.PlayOneShot(clip);
    }
 
-   public void SaveSoundSettings()
-   {
-          PlayerPrefs.SetFloat(BackgroundPref, backgroundSlider.value);
-          PlayerPrefs.SetFloat(SoundEffectsPref, soundEffectsSlider.value);
-   }
+//    public void SaveSoundSettings()
+//    {
+//        PlayerPrefs.SetFloat(BackgroundPref, backgroundSlider.value);
+//        PlayerPrefs.SetFloat(SoundEffectsPref, soundEffectsSlider.value);
+//    }
 
-   void OnApplicationFocus(bool inFocus)
-   {
-          if(!inFocus)
-          {
-               SaveSoundSettings();
-          }
-   }
+//    void OnApplicationFocus(bool inFocus)
+//    {
+//           if(!inFocus)
+//           {
+//                SaveSoundSettings();
+//           }
+//    }
 
    public void UpdateSound()
    {

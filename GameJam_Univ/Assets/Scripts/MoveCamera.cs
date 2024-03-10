@@ -22,20 +22,48 @@ public class MoveCamera : MonoBehaviour
     private float timer = 0.0f;
     private float waitTime = 0.95f;
 
-    Vector3 cardDirection = new Vector3(0,0,0);
+    Vector3 cardDirection = new Vector3(0, 0, 0);
 
-    void Start() {
+    public int goToInitPos = 0;
+    Vector3 initPosDir;
+    float lastDistance;
+
+    void Start()
+    {
         cam = GetComponent<Camera>();
         initSize = cam.orthographicSize;
         initSizeV = /*new Vector3(1.7f, 2, 1) */ transform.localScale / initSize;
         speed = minSpeed;
         initPos = Camera.main.transform.position;
+        lastDistance = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
         Vector3 dir = new Vector3(0, 0, 0);
+
+        float dist = Vector2.Distance(transform.position, initPos);
+
+        if (goToInitPos == 1 && dist > 30)
+        {
+            Debug.Log(initPos + " " + transform.position + " " + dist + " " + initPosDir);
+            if (Mathf.Abs(lastDistance - dist) > 30)
+            {
+                lastDistance = dist;
+                MoveCameraEnemies();
+            }
+
+            transform.position = transform.position + initPosDir * speed / 3 * Time.deltaTime;
+            if (goToInitPos == 1 && Mathf.Abs(dist - 30) < 1)
+            {
+                dist = 0;
+                initPosDir = new Vector3(0, 0, 0);
+                goToInitPos = 0;
+                lastDistance = 0;
+            }
+        }
+        
 
         if (Input.GetKey(KeyCode.Mouse2))
         {
@@ -49,7 +77,7 @@ public class MoveCamera : MonoBehaviour
         {
             timer += Time.deltaTime;
             transform.position = transform.position + cardDirection * speed / 2 * Time.deltaTime;
-            if ((cardDirection.y  != 0 && timer > waitTime/2) || (cardDirection.x != 0 && timer > waitTime))
+            if ((cardDirection.y != 0 && timer > waitTime / 2) || (cardDirection.x != 0 && timer > waitTime))
             {
                 cardDirection = new Vector3(0, 0, 0);
                 timer = 0;
@@ -76,13 +104,13 @@ public class MoveCamera : MonoBehaviour
 
         // zoom in
         if ((Input.GetKey(KeyCode.E) || Input.GetAxis("Mouse ScrollWheel") > 0) && cam.orthographicSize >= minSize)
-        {   
+        {
             if (Input.GetKey(KeyCode.E))
                 cam.orthographicSize -= zoomSensibility * Time.deltaTime;
             else
                 cam.orthographicSize -= zoomSensibility * zoomSensibility / 2 * Time.deltaTime;
 
-            if (cam.orthographicSize < (minSize+maxSize)/2)
+            if (cam.orthographicSize < (minSize + maxSize) / 2)
                 speed = minSpeed;
 
             float scalingTime = Time.time * zoomSensibility;
@@ -131,7 +159,7 @@ public class MoveCamera : MonoBehaviour
             xLimitMax += 50;
 
         if (cardPos.y > transform.position.y)
-            cardDirection.y= 1;
+            cardDirection.y = 1;
         if (cardPos.y > yLimitMax)
             yLimitMax += 50;
 
@@ -150,5 +178,22 @@ public class MoveCamera : MonoBehaviour
         yLimitMax = 450;
         GetComponent<Camera>().orthographicSize = initSize;
         this.GetComponent<Transform>().transform.position = initPos;
+    }
+
+    public void MoveCameraEnemies()
+    {
+        goToInitPos = 1;
+        initPosDir = new Vector3(0, 0, 0);
+        if (transform.position.x > initPos.x)
+            initPosDir.x = -1;
+
+        if (transform.position.x < initPos.x)
+            initPosDir.x = 1;
+
+        if (transform.position.y < initPos.y)
+            initPosDir.y = 1;
+
+        if (transform.position.y > initPos.y)
+            initPosDir.y = -1;
     }
 }

@@ -147,6 +147,8 @@ public class GameMaster : MonoBehaviour
         endRoundTime = Time.time + roundTime;
         enemyStage = true;
 
+        Camera.main.GetComponent<MoveCamera>().MoveCameraEnemies();
+        
         StartCoroutine(CallToAction());
     }
 

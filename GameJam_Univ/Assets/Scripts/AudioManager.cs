@@ -17,6 +17,7 @@ public class AudioManager : MonoBehaviour
    public AudioClip win;
    public AudioClip lose;
    public AudioClip wrong_place;
+   public AudioClip button_press;
    public static AudioManager instance;
    private static readonly string FirstPlay = "FirstPlay";
    private static readonly string BackgroundPref = "BackgroundPref";
@@ -82,5 +83,7 @@ public class AudioManager : MonoBehaviour
 
           return true;
      }
+
+     
    
 }

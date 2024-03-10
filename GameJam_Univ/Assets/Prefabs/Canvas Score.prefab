@@ -263,6 +263,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4380436338032047674}
+        m_MethodName: PlayButtonPressSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3110546080791125508
 GameObject:
   m_ObjectHideFlags: 0
@@ -670,6 +681,7 @@ GameObject:
   - component: {fileID: 4380436338726163029}
   - component: {fileID: 4380436338726163028}
   - component: {fileID: 4380436338726163027}
+  - component: {fileID: 4380436338032047674}
   m_Layer: 5
   m_Name: Canvas Score
   m_TagString: Untagged
@@ -763,6 +775,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &4380436338032047674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4380436338726163026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66c21975955a4764ba2f8bf71e21d48e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4380436338965039622
 GameObject:
   m_ObjectHideFlags: 0
@@ -1100,6 +1124,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4380436338032047674}
+        m_MethodName: PlayButtonPressSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8131598420153018287
 GameObject:
   m_ObjectHideFlags: 0
@@ -1295,6 +1330,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8494112756789146307}
         m_MethodName: CloseOpen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4380436338032047674}
+        m_MethodName: PlayButtonPressSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

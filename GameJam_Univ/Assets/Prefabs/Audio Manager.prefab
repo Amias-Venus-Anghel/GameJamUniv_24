@@ -56,6 +56,7 @@ MonoBehaviour:
   win: {fileID: 8300000, guid: b9f97a62ecbfb3b4cbdb21c41ff33fd1, type: 3}
   lose: {fileID: 8300000, guid: 2dcd3445947d85d42b85a749fbbad4ae, type: 3}
   wrong_place: {fileID: 8300000, guid: a7882c3fa16475842a819a7d87e615b6, type: 3}
+  button_press: {fileID: 8300000, guid: 54a1cc85d2ee0824bb4c5ad07fd62ca1, type: 3}
   backgroundSlider: {fileID: 0}
   soundEffectsSlider: {fileID: 0}
 --- !u!1 &4553230866382364393

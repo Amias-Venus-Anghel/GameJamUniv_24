@@ -287,6 +287,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1939602335}
+        m_MethodName: PlayButtonPressSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &350054874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -789,6 +800,7 @@ GameObject:
   - component: {fileID: 1939602331}
   - component: {fileID: 1939602330}
   - component: {fileID: 1939602334}
+  - component: {fileID: 1939602335}
   m_Layer: 5
   m_Name: Canvas Story
   m_TagString: Untagged
@@ -889,5 +901,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5d5bc34e02aa675468ea8970651d57bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1939602335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1939602329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66c21975955a4764ba2f8bf71e21d48e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

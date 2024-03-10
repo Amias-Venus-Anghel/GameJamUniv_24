@@ -10,7 +10,10 @@ public class GameMaster : MonoBehaviour
     [SerializeField] TMP_Text score_text = null;
     [SerializeField] Slider time_slider = null;
     [SerializeField] GameObject startPointPrefab = null;
-     AudioManager audioManager;
+    [SerializeField] TMP_Text day_text = null;
+    [SerializeField] TMP_Text time_text = null;
+    
+    AudioManager audioManager;
 
     private Vector3 startPosition;
     private GenerateDeck generator; 
@@ -24,6 +27,9 @@ public class GameMaster : MonoBehaviour
     [SerializeField] int enemiesWave = 5;
     [SerializeField] int enemiesSpawnSpeed = 5;
 
+    // count played rounds
+    private int dayOfWeek = 0;
+
     private float endRoundTime = 0;
     private bool enemyStage = false;
     private bool roadIsBuild = false;
@@ -34,16 +40,21 @@ public class GameMaster : MonoBehaviour
 
     private WaveSpawner waveSpawner;
 
+    private CheckRoadLoop checkLoops;
+
     void Awake() {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         startPosition = GameObject.Find(" StartPoint").transform.position;
         generator = GameObject.Find("CardsSpawner").GetComponent<GenerateDeck>();
         worldCanvas = GameObject.Find("Canvas World").transform;
         creatureCanvas = GameObject.Find("Canvas Creatures").transform;
+        checkLoops = FindObjectOfType<CheckRoadLoop>();
 
-        waveSpawner = this.GetComponent<WaveSpawner>();
+        waveSpawner = GetComponent<WaveSpawner>();
 
         toPositions = new List<CreaturePositionForAttack>();
+        roadIsBuild = true;
+        enemyStage = true;
         NewRound();
     }
 
@@ -58,7 +69,11 @@ public class GameMaster : MonoBehaviour
 
     // called to start new round
     public void NewRound() {
-         audioManager.PlaySFX(audioManager.startingRound);
+        // reset time
+        endRoundTime = Time.time + roundTime;
+        // turn off check for loops
+        checkLoops.UpdateCheckForLoop(false);
+        audioManager.PlaySFX(audioManager.startingRound);
         // destroy left over cards
         generator.DestroyLeftovers();
 
@@ -67,24 +82,36 @@ public class GameMaster : MonoBehaviour
             // if enemy stage happened
             if (enemyStage) {
                 // this is a new round
+                Debug.Log("new round");
+                dayOfWeek++;
+                Debug.Log("Day " + dayOfWeek);
+                if (dayOfWeek == 8) {
+                    // week ended, go to endscreen
+                    FindObjectOfType<DataBringer>().EndGame(score);
+                }
+                day_text.text = "Day " + dayOfWeek;
                 enemyStage = false;
+                roadIsBuild = false;
                 AdjustDifficulty();
                 ClearScene();
             } else {
                 // if wave didnt start but road is build and time up, start enemy wave
+                Debug.Log("start wave");
                 StartEnemyWave();
             }
         }
         else {
+            // this is a reset if road wasnt finished
+            Debug.Log("road not finished, reset");
             roadIsBuild = false;
+            enemyStage = false;
             ClearScene();
         }
         
-        // reset time
-        endRoundTime = Time.time + roundTime;
     }
 
     private void ClearScene() {
+        time_text.text = "PLANNING PHASE";
         Camera.main.GetComponent<MoveCamera>().ResetCamera();
         
         waveSpawner.DestroyLeftovers();
@@ -108,15 +135,21 @@ public class GameMaster : MonoBehaviour
 
         //  generate new pack
         generator.GenerateNewDeck(roadCardsNumber, cardsNumber);
+
+        // turn on check for loops after deck generation
+        checkLoops.UpdateCheckForLoop(true);
     }
 
     public void StartEnemyWave() {
+        time_text.text = "DEFENDING PHASE";
         // add bonus score if time left for hexagon placement
         AddScore((int)(endRoundTime - Time.time));
 
         endRoundTime = Time.time + roundTime;
         enemyStage = true;
 
+        // Camera.main.GetComponent<MoveCamera>().MoveCameraEnemies();
+        
         StartCoroutine(CallToAction());
     }
 
@@ -173,7 +206,6 @@ public class GameMaster : MonoBehaviour
         // add bonus from time left
         // TO DO: check if enemies died by endpoint or killed 
         AddScore((int)(endRoundTime - Time.time));
-
         endRoundTime = 0;
     }
 

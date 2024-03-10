@@ -97,6 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   range: 0.5
+  happinessDamage: 700
 --- !u!114 &3671234392267262565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,5 +110,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f5c78892c871dc4382fb235486ce2bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 15
-  score: 20
+  life: 65
+  score: 500

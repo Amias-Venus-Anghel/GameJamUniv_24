@@ -53,6 +53,10 @@ MonoBehaviour:
   placed: {fileID: 8300000, guid: fb5d3bca55848834ba8c216f01974cb8, type: 3}
   rotated: {fileID: 8300000, guid: 56769012ac49be8419cfbb733f0b96f7, type: 3}
   startingRound: {fileID: 8300000, guid: 32199145f62c29a419ff39e7339ef02e, type: 3}
+  win: {fileID: 8300000, guid: b9f97a62ecbfb3b4cbdb21c41ff33fd1, type: 3}
+  lose: {fileID: 8300000, guid: 2dcd3445947d85d42b85a749fbbad4ae, type: 3}
+  wrong_place: {fileID: 8300000, guid: a7882c3fa16475842a819a7d87e615b6, type: 3}
+  button_press: {fileID: 8300000, guid: 54a1cc85d2ee0824bb4c5ad07fd62ca1, type: 3}
   backgroundSlider: {fileID: 0}
   soundEffectsSlider: {fileID: 0}
 --- !u!1 &4553230866382364393
@@ -227,7 +231,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

@@ -427,7 +427,7 @@ GameObject:
   - component: {fileID: 4384909592140047276}
   m_Layer: 5
   m_Name: place 5
-  m_TagString: RoadPlace
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -575,7 +575,7 @@ GameObject:
   - component: {fileID: 4384909592493904581}
   m_Layer: 5
   m_Name: place 1
-  m_TagString: RoadPlace
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

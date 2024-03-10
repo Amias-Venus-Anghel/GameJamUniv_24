@@ -14,6 +14,10 @@ public class AudioManager : MonoBehaviour
    public AudioClip placed;
    public AudioClip rotated;
    public AudioClip startingRound;
+   public AudioClip win;
+   public AudioClip lose;
+   public AudioClip wrong_place;
+   public AudioClip button_press;
    public static AudioManager instance;
    private static readonly string FirstPlay = "FirstPlay";
    private static readonly string BackgroundPref = "BackgroundPref";
@@ -43,28 +47,16 @@ public class AudioManager : MonoBehaviour
 
         firstPlayInt = PlayerPrefs.GetInt(FirstPlay);
 
-        if(firstPlayInt == 0)
-        {
-               backgroundFloat = 1f;
-               soundEffectsFloat = 1f;
+          backgroundFloat = 1f;
+          soundEffectsFloat = 1f;
 
-               backgroundValue = backgroundFloat;
-               soundEffectsValue = soundEffectsFloat;
-
+          backgroundValue = backgroundFloat;
+          soundEffectsValue = soundEffectsFloat;
+          
+          if (backgroundSlider != null) {
                backgroundSlider.value = backgroundFloat;
                soundEffectsSlider.value = soundEffectsFloat;
-
-               PlayerPrefs.SetFloat(BackgroundPref, backgroundFloat);
-               PlayerPrefs.SetFloat(SoundEffectsPref, soundEffectsFloat);
-               PlayerPrefs.SetInt(FirstPlay, -1);
-        }
-        else
-        {
-               backgroundFloat = PlayerPrefs.GetFloat(BackgroundPref);
-               backgroundSlider.value = backgroundFloat;
-               soundEffectsFloat = PlayerPrefs.GetFloat(SoundEffectsPref);
-               soundEffectsSlider.value = soundEffectsFloat;
-        }
+          }
    }
 
    public void PlaySFX(AudioClip clip)
@@ -72,36 +64,26 @@ public class AudioManager : MonoBehaviour
           SFXSource.PlayOneShot(clip);
    }
 
-   public void SaveSoundSettings()
-   {
-          PlayerPrefs.SetFloat(BackgroundPref, backgroundSlider.value);
-          PlayerPrefs.SetFloat(SoundEffectsPref, soundEffectsSlider.value);
-   }
-
-   void OnApplicationFocus(bool inFocus)
-   {
-          if(!inFocus)
-          {
-               SaveSoundSettings();
-          }
-   }
-
    public void UpdateSound()
-   {
+     {
           musicSource.volume = backgroundSlider.value;
           SFXSource.volume = soundEffectsSlider.value;
 
           backgroundValue = backgroundSlider.value;
           soundEffectsValue = soundEffectsSlider.value;
-   }
+     }
 
-     public void SetSoundsValues( Slider backgroundSlider, Slider soundEffectsSlider )
+     public bool SetSoundsValues( Slider backgroundSlider, Slider soundEffectsSlider )
      {
           this.backgroundSlider = backgroundSlider;
           this.soundEffectsSlider = soundEffectsSlider;
 
           backgroundSlider.value = backgroundValue;
           soundEffectsSlider.value = soundEffectsValue;
+
+          return true;
      }
+
+     
    
 }

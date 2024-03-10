@@ -28,6 +28,7 @@ public class WaveSpawner : MonoBehaviour
     
     // clean enemies when new round
     public void DestroyLeftovers() {
+        timeToSpawn = false;
         if (spawned_enemies != null) {
             foreach(Transform enemy in spawned_enemies) {
                 if (enemy != null) {
@@ -48,6 +49,7 @@ public class WaveSpawner : MonoBehaviour
         
        if (deadEnemies == totalWaves) {
             GetComponent<GameMaster>().AllEnemiesKilled();
+            deadEnemies = 0;
        }
     }
 

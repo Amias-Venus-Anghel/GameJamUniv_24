@@ -40,9 +40,10 @@ public class CreatureMerge : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, mergeWith.position, step);
             if (Vector3.Distance(transform.position, mergeWith.position) < 0.001f)
             {
-                // play animation on top of objects
                 // destroy one of the creatures
                 Destroy(mergeWith.gameObject);
+                // play animation on top of objects
+                transform.GetChild(1).gameObject.SetActive(true);
                 audioManager.PlaySFX(audioManager.combine);
                 color_cod = merge_cod;
                 manager.SetStatsForCode(color_cod, this.gameObject);

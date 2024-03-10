@@ -8,10 +8,13 @@ public class MainMenu : MonoBehaviour
 {
    public Slider backgroundSlider, soundEffectsSlider;
    private AudioManager audioManager = null;
+
+   bool audioSet = false;
    private void Awake()
    {
+      audioSet = false;
       audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
-      audioManager.SetSoundsValues( backgroundSlider, soundEffectsSlider );
+      audioSet = audioManager.SetSoundsValues( backgroundSlider, soundEffectsSlider );
    }
    public void PlayGame()
    {
@@ -25,6 +28,8 @@ public class MainMenu : MonoBehaviour
 
    public void UpdateSound()
    {
-           audioManager.UpdateSound();
+      if (audioSet) {
+         audioManager.UpdateSound();
+      }
    }
 }

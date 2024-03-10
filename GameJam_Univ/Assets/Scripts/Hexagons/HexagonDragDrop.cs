@@ -14,7 +14,9 @@ public class HexagonDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     private CardDeck cardDeck;
     private Image image;
     private Transform creatures;
-     AudioManager audioManager;
+    AudioManager audioManager;
+    private CheckOverlay checkOverlay;
+
     // variables
     private bool canRotate = false;
     public bool placed = false;
@@ -27,6 +29,7 @@ public class HexagonDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     
     void Awake() {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        checkOverlay = GameObject.Find("Canvas World").GetComponent<CheckOverlay>();
         image = GetComponent<Image>();
         cardDeck = transform.parent.GetComponent<CardDeck>();
         if (!endPoint) {
@@ -55,6 +58,7 @@ public class HexagonDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         if (starterPoint) {
             placed = true;
             image.raycastTarget = false;
+            // checkOverlay.AddPlaceholdersForCheck(cardDeck.GetComponent<RectTransform>());
         }
     }
 
@@ -141,6 +145,9 @@ public class HexagonDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         Destroy(holders[(index + 1)%6]);
         Destroy(holders[Math.Abs((index +5)%6)]);
 
+        // aici register kids.
+        // checkOverlay.AddPlaceholdersForCheck(cardDeck.GetComponent<RectTransform>());
+        
     }
 
     public bool PointIsRoadEnd(int index) {
@@ -157,12 +164,12 @@ public class HexagonDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         if ((Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.R)) && canRotate) {
             nrRotiri++;
             transform.Rotate(0, 0, -60);
-             audioManager.PlaySFX(audioManager.rotated);
+            audioManager.PlaySFX(audioManager.rotated);
             if (!endPoint) {
                 creatures.Rotate(0, 0, -60);
                 // rotate creature sprites;
                 for (int i = 0; i < creatures.childCount; i++) {
-                    creatures.GetChild(i).GetChild(0).Rotate(0, 0, 60);
+                    creatures.GetChild(i).Rotate(0, 0, 60);
                 }
             }
 
@@ -171,5 +178,14 @@ public class HexagonDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
     public void MakeDragable(bool draggable) {
         image.raycastTarget = draggable;
+    }
+
+    public void SetTagsOnRoadEnds() {
+        // set road tiles tags
+        if (isRoad) {
+            for (int i = 0; i < roadEndPoints.Length; i++) {
+                holders[roadEndPoints[i]].tag = "RoadPlace";
+            }
+        }
     }
 }

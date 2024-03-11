@@ -23,6 +23,11 @@ public class CreatureManager : MonoBehaviour
     public struct colorSprites {
         public string colorCode;
         public Sprite sprite;
+    }
+
+    [Serializable]
+    public struct creatureStats {
+        public string colorCode;
         public float power;
         public float fireRate;
         public float lifeTime;
@@ -47,8 +52,13 @@ public class CreatureManager : MonoBehaviour
         fireRateDict = new Dictionary<string, float>();
         lifeTimeDict = new Dictionary<string, float>();
 
+        creatureStats[] stats = FindObjectOfType<DifficultySetting>().GetDifficultySettings();
+
         foreach (colorSprites s in sprites) {
             colorsDict.Add(s.colorCode, s.sprite);
+        }
+        
+        foreach (creatureStats s in stats) {
             powerDict.Add(s.colorCode, s.power);
             lifeTimeDict.Add(s.colorCode, s.lifeTime);
             fireRateDict.Add(s.colorCode, s.fireRate);

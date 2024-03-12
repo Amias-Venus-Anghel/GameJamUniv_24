@@ -8,7 +8,7 @@ public class Attack : MonoBehaviour
 {
     [SerializeField] private GameObject projectilePrefab = null;
     [SerializeField] private float fireTime = 0.6f, destroyTime = 10f;
-    [SerializeField] private float range = 150;
+    [SerializeField] private float range = 300f;
     [SerializeField] private float power = 1;
     private GameObject target = null;
     private GameObject projectile;
@@ -32,7 +32,7 @@ public class Attack : MonoBehaviour
         } 
         else
         {
-            if (TargetInRange(target) == false)
+            if (!TargetInRange(target))
                 target = null;
 
             time += Time.deltaTime;
@@ -43,7 +43,7 @@ public class Attack : MonoBehaviour
 
             }
         }
-        if (fireStarted == true)
+        if (fireStarted == true && TargetInRange(target))
         {
             destroyTime -= Time.deltaTime;
             if (destroyTime <= 0){
@@ -79,7 +79,7 @@ public class Attack : MonoBehaviour
 
     bool TargetInRange(GameObject Target)
     {
-        return (Vector2.Distance(Target.transform.position, transform.position) <= range);
+        return Vector2.Distance(Target.transform.position, transform.position) <= range;
     }
 
     public void SetPowers(float newPower, float lifeTime, float fireRate) {

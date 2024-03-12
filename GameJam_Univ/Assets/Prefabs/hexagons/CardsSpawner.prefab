@@ -59,6 +59,7 @@ MonoBehaviour:
   - {fileID: 1665540637770156708, guid: 3f4a461d8f57e6a41a61ed1fc25ff91f, type: 3}
   endPrefabCard: {fileID: 6877100993816626067, guid: 62775d76180611b4a997539f3f277d1c,
     type: 3}
+  waypoints: []
 --- !u!222 &8863433633920266719
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -81,7 +82,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

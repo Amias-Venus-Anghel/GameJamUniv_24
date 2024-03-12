@@ -50,8 +50,9 @@ MonoBehaviour:
   startPointPrefab: {fileID: 6008657178515458793, guid: d07419928fe622648af4aa87f5815ffe,
     type: 3}
   day_text: {fileID: 0}
+  time_text: {fileID: 0}
   score: 0
-  roundTime: 30
+  roundTime: 35
   roadCardsNumber: 3
   cardsNumber: 5
   enemiesWave: 5

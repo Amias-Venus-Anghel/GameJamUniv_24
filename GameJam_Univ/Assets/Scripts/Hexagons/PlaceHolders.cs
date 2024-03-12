@@ -25,8 +25,6 @@ public class PlaceHolders : MonoBehaviour, IDropHandler
             return;
         }
 
-        GameObject.Find("Canvas World").GetComponent<CheckOverlay>().Check();
-
         // road compatibility checks
         if (dropped.IsRoad()) {
             // if road but not road point

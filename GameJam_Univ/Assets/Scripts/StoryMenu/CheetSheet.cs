@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CheetSheet : MonoBehaviour
 {
-    [SerializeField] Sprite[] sheets;
+    [SerializeField] Sprite[] sheets = null;
     private Image image;
     private int index = 0;
 

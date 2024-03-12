@@ -5,7 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     private GameObject target = null;
-    private float speed = 0.3f;
+    private float speed = 35f;
     private float range;
     private Vector3 initPos;
     private float power;
@@ -21,7 +21,7 @@ public class Projectile : MonoBehaviour
                 Destroy(this.gameObject);
 
             if (transform.position != target.transform.position)
-                transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed);
+                transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
 
             if (Mathf.Abs(transform.position.x - target.transform.position.x) <= 0.05f &&
                 Mathf.Abs(transform.position.y - target.transform.position.y) <= 0.05f)
@@ -34,9 +34,7 @@ public class Projectile : MonoBehaviour
 
     bool TargetInRange()
     {
-        if (Vector2.Distance(initPos, target.transform.position) <= range)
-            return true;
-        return false;
+        return Vector2.Distance(initPos, target.transform.position) <= range;
     }
 
     public void SetTarget(GameObject target)

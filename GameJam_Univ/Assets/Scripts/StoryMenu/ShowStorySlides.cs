@@ -9,7 +9,7 @@ public class ShowStorySlides : MonoBehaviour
     [SerializeField] private Image[] images = null;
     [SerializeField] private GameObject buttonNext = null;
     [SerializeField] private GameObject buttonPrev = null;
-    [SerializeField] private Transform prevPozChange;
+    [SerializeField] private Transform prevPozChange = null;
     private Vector3 prevPoz1;
 
     private int indexActual;

@@ -4,8 +4,8 @@ using UnityEngine.UI;
 public class AudioManager : MonoBehaviour
 {
     [Header("----------- Audio Source ------------")]
-   [SerializeField] AudioSource musicSource;
-   [SerializeField] AudioSource SFXSource;
+   [SerializeField] AudioSource musicSource = null;
+   [SerializeField] AudioSource SFXSource = null;
 
     [Header("----------- Audio Clip ------------")]
    public AudioClip background;
@@ -20,8 +20,6 @@ public class AudioManager : MonoBehaviour
    public AudioClip button_press;
    public static AudioManager instance;
    private static readonly string FirstPlay = "FirstPlay";
-   private static readonly string BackgroundPref = "BackgroundPref";
-   private static readonly string SoundEffectsPref = "SoundEffectsPref";
    private int firstPlayInt;
    public Slider backgroundSlider, soundEffectsSlider;
    private float backgroundFloat, soundEffectsFloat;

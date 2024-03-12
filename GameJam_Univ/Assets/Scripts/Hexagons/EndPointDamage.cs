@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class EndPointDamage : MonoBehaviour
 {
-    [SerializeField] private Sprite happyEnd;
-    [SerializeField] private Sprite hurtEnd;
+    [SerializeField] private Sprite happyEnd = null;
+    [SerializeField] private Sprite hurtEnd = null;
 
     private Image image;
 

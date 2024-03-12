@@ -27,7 +27,7 @@ public class EnemyMovement : MonoBehaviour
     }
 
     void Update() {
-        if(Vector3.Distance(transform.position, target.position) <= 0.1f) { 
+        if(Vector3.Distance(transform.position, target.position) <= 0.5f) { 
             if (target == hexagonEnd) {
                 spawner.EnemyDied();
                 // add score penality
@@ -44,8 +44,8 @@ public class EnemyMovement : MonoBehaviour
             }
         }
 
-        Vector3 dir = target.position - transform.position;
-        transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
+        var step =  speed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, target.position, step);
     }
 
 

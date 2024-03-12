@@ -26,7 +26,6 @@ public class MoveCamera : MonoBehaviour
 
     public int goToInitPos = 0;
     Vector3 initPosDir;
-    float lastDistance;
 
     void Start()
     {
@@ -35,7 +34,6 @@ public class MoveCamera : MonoBehaviour
         initSizeV = transform.localScale / initSize;
         speed = minSpeed;
         initPos = Camera.main.transform.position;
-        lastDistance = 0;
     }
 
     // Update is called once per frame

@@ -48,7 +48,7 @@ MonoBehaviour:
   musicSource: {fileID: 4553230866742207147}
   SFXSource: {fileID: 4553230866382364406}
   background: {fileID: 8300000, guid: 449d806a2282de1408735141db5f905d, type: 3}
-  attack: {fileID: 8300000, guid: 6de2794b15f87aa4d89f1a26eef828dd, type: 3}
+  attack: {fileID: 8300000, guid: 578242f6edb07f0418cf21b699984e0e, type: 3}
   combine: {fileID: 8300000, guid: f8ef33aad874b5a4198ceaddb56e44da, type: 3}
   placed: {fileID: 8300000, guid: fb5d3bca55848834ba8c216f01974cb8, type: 3}
   rotated: {fileID: 8300000, guid: 56769012ac49be8419cfbb733f0b96f7, type: 3}
